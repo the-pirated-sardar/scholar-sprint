@@ -33,7 +33,7 @@ This web application is designed to help students/instructors research by provid
 ## Contributors
 - [Prateek Singh Arora](https://github.com/the-pirated-sardar)
 - [Jovan](Link to GitHub profile)
-- [Jerry Chen](Link to GitHub profile)
+- [Jerry Chen](https://github.com/jchen-sfu)
 - [Udham Lalli](Link to GitHub profile)
 
 ## Shared Documents Links
@@ -52,7 +52,7 @@ This web application is designed to help students/instructors research by provid
 - Tentative free blocks for each contributor:
   - Prateek: Entire day on Thursdays/Tuesday, after 2 pm on Wednesday/Friday, weekends possible if needed.
   - Jovan: 
-  - Jerry: 
+  - Jerry: 11 AM - 5 PM | Monday - Sunday
   - Udham: 
 
 ## Decision Making
@@ -73,7 +73,7 @@ This web application is designed to help students/instructors research by provid
 
 ## Project Planning
 ### Work Breakdown
-- **WBS**: [Link to your Work Breakdown Structure document]
+- **WBS**: [Link to your Work Breakdown Structure document] (Jerry)
 - **Task Prioritization**:
   - Task A (High Priority due to dependency)
   - Task B (Medium Priority)
