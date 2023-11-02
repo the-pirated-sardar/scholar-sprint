@@ -57,7 +57,7 @@ This web application is designed to help students/instructors research by provid
 
 ## Decision Making
 - **Selected APIs**:
-  - RSS API (For fetching recent research publications)
+  - Core API (For fetching recent research publications)
   - ChatGPT API (For sentiment analysis)
 - **Development Frameworks**:
   - **Frontend**: React.js
@@ -73,7 +73,7 @@ This web application is designed to help students/instructors research by provid
 
 ## Project Planning
 ### Work Breakdown
-- **WBS**: [Link to your Work Breakdown Structure document] (Jerry)
+- **WBS**: [https://lucid.app/lucidchart/fc29cca1-d8bc-4026-a5d9-d2a3a3831d8c/edit?viewport_loc=-392%2C-14%2C2303%2C1024%2C0_0&invitationId=inv_8c790bd4-8791-4217-8863-e55757254d16] (Jerry) (Change Link when upload doc)
 - **Task Prioritization**:
   - Task A (High Priority due to dependency)
   - Task B (Medium Priority)
