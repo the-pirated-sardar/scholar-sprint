@@ -32,9 +32,15 @@ This web application is designed to help students/instructors research by provid
 
 ## Contributors
 - [Prateek Singh Arora](https://github.com/the-pirated-sardar)
-- [Jovan](Link to GitHub profile)
+- [Jovan](https://github.com/Jovan-Beas)
 - [Jerry Chen](https://github.com/jchen-sfu)
 - [Udham Lalli](Link to GitHub profile)
+
+## AI Disclousre Forms:
+- [Prateek Singh Arora]
+- [Jovan]
+- [Jerry Chen]
+- [Udham Lalli]
 
 ## Shared Documents Links
 - **Google Docs**: [Link](https://docs.google.com/document/d/1y8AEWyzAuIrlz61OJoMNexjp9WL8iy9tKR_iihNczL0/edit?usp=sharing). Access will need to be requested.
@@ -51,7 +57,7 @@ This web application is designed to help students/instructors research by provid
 - **Check-in Schedule**: Twice weekly, tentatively on Thursdays and Sunday end-of-day. However, given everyone's schedules, might be subject to change.
 - Tentative free blocks for each contributor:
   - Prateek: Entire day on Thursdays/Tuesday, after 2 pm on Wednesday/Friday, weekends possible if needed.
-  - Jovan: 
+  - Jovan: After 2pm on Weekdays.
   - Jerry: 11 AM - 5 PM | Monday - Sunday
   - Udham: 
 
@@ -89,8 +95,8 @@ This web application is designed to help students/instructors research by provid
 
 ## Design Phase
 ### Interface Design
-- **Wireframes**: [Link to your wireframe tool/document]
-- **High-fidelity Prototypes**: [Link to your prototypes]
+- **Wireframes**: [https://app.uizard.io/p/43f61408]
+- **High-fidelity Prototypes**: [https://www.figma.com/file/o2zbq2rhDLAEdyFZZtlIc6/SMART-RESEARCH-DRAFT-1?type=design&node-id=1-2&mode=design&t=q2BQV0cuOhJ3uzoO-0]
 
 ### Architecture Design
 - **Data Flow Diagram**: [Link to your data flow diagram]
