@@ -17,6 +17,7 @@ This web application is designed to help students/instructors research by provid
   - [Objectives](#objectives)
   - [Table of Contents](#table-of-contents)
   - [Contributors](#contributors)
+  - [AI Disclousre Forms:](#ai-disclousre-forms)
   - [Shared Documents Links](#shared-documents-links)
   - [Communication](#communication)
   - [Decision Making](#decision-making)
@@ -37,7 +38,7 @@ This web application is designed to help students/instructors research by provid
 - [Udham Lalli](https://github.com/UdhamL)
 
 ## AI Disclousre Forms:
-- [Prateek Singh Arora]
+- [Prateek Singh Arora](AI_declarations//Milestone1_AI_Declaration_Prateek_Arora_301417287)
 - [Jovan Beas](AI_declarations/Project_Milestone1_AI_Disclosure_Jovan_Beas_301449584.pdf)
 - [Jerry Chen]
 - [Udham Lalli](AI_declarations/P1_AI_Declaration_Udhay_Lalli_301430162.pdf)
