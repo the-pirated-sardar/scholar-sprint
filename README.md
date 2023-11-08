@@ -95,8 +95,8 @@ This web application is designed to help students/instructors research by provid
 
 ## Design Phase
 ### Interface Design
-- **Wireframes**: [https://app.uizard.io/p/43f61408]
-- **High-fidelity Prototypes**: [https://www.figma.com/file/o2zbq2rhDLAEdyFZZtlIc6/SMART-RESEARCH-DRAFT-1?type=design&node-id=1-2&mode=design&t=q2BQV0cuOhJ3uzoO-0]
+- **Wireframes**: [https://www.figma.com/file/o2zbq2rhDLAEdyFZZtlIc6/ScholarSprint-WireFrame-and-Prototype?type=design&node-id=1-2&mode=design&t=P0SV8AwNcxNNk7RA-0]
+- **High-fidelity Prototypes**: [https://www.figma.com/file/o2zbq2rhDLAEdyFZZtlIc6/ScholarSprint-WireFrame-and-Prototype?type=design&node-id=1-2&mode=design&t=P0SV8AwNcxNNk7RA-0]
 
 ### Architecture Design
 - **Data Flow Diagram**: [Link to your data flow diagram]
