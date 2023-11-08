@@ -34,13 +34,13 @@ This web application is designed to help students/instructors research by provid
 - [Prateek Singh Arora](https://github.com/the-pirated-sardar)
 - [Jovan](https://github.com/Jovan-Beas)
 - [Jerry Chen](https://github.com/jchen-sfu)
-- [Udham Lalli](Link to GitHub profile)
+- [Udham Lalli](https://github.com/UdhamL)
 
 ## AI Disclousre Forms:
 - [Prateek Singh Arora]
 - [Jovan]
 - [Jerry Chen]
-- [Udham Lalli]
+- [Udham Lalli](AI_declarations/P1_AI_Declaration_Udhay_Lalli_301430162.pdf)
 
 ## Shared Documents Links
 - **Google Docs**: [Link](https://docs.google.com/document/d/1y8AEWyzAuIrlz61OJoMNexjp9WL8iy9tKR_iihNczL0/edit?usp=sharing). Access will need to be requested.
