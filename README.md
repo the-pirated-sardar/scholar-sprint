@@ -87,7 +87,7 @@ This web application is designed to help students/instructors research by provid
   - ... and so on.
 
 ### Scheduling
-- **Project Timeline**: [Link to your project timeline document or tool]
+- **Project Timeline**: [https://docs.google.com/spreadsheets/d/1Ba1-3Jxgz5IJnemZq8tC3lzCOnmH5Lk6bexXZrHL7e8/edit?usp=sharing]
 - **Team Meetings**: Every Tuesday and Thursday at 4 pm.
 
 ### GitHub Management
