@@ -60,7 +60,7 @@ This web application is designed to help students/instructors research by provid
   - Prateek: Entire day on Thursdays/Tuesday, after 2 pm on Wednesday/Friday, weekends possible if needed.
   - Jovan: After 2pm on Weekdays.
   - Jerry: 11 AM - 5 PM | Monday - Sunday
-  - Udham: 
+  - Udham: After 3pm on Monday/Friday, All day on thursday/Saturday. 
 
 ## Decision Making
 - **Selected APIs**:
