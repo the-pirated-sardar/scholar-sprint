@@ -4,15 +4,17 @@ import { Box, TextField } from "@mui/material";
 const SearchBar = () => {
 
     const apiKey = "j8F30WKHQaLkZVnEI4xU6Pd1Gc2BNwil"
-    const apiEndpoint = "https://api.core.ac.uk/v3/"
+    const apiEndpoint = "https://api.core.ac.uk/v3"
 
     async function getEntity(urlFragment) {
         const headers = {
             "Authorization": "Bearer " + apiKey
         };
 
+        //const query = apiEndpoint + urlFragment;
+        const query = apiEndpoint + "/search?text=ML";
         try {
-            const response = await fetch(apiEndpoint + urlFragment, {
+            const response = await fetch(query, {
                 method: 'GET',
                 headers: headers
             });
@@ -32,17 +34,16 @@ const SearchBar = () => {
 
         event.preventDefault()
         console.log(event.target.value)
-        
-        getEntity("data-providers/1")
-            .then(({ data, elapsed }) => {
-                console.log(JSON.stringify(data, null, 2));
-                console.log('Elapsed time:', elapsed);
+
+        getEntity("data-providers/1/outputs")
+            .then((data) => {
+                console.log(JSON.stringify(data, null, 2))
             })
 
     }
 
     const handleChange = (event) => {
-        console.log(event.target.value)
+        //console.log(event.target.value)
     }
 
     return (
