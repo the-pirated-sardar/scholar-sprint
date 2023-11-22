@@ -13,40 +13,41 @@ export default function SearchResults() {
     return (
         <Box
             sx={{
-                width: 400,
-                height: 400,
+                display: "flex",
+                width: 1,
+                height: 1,
+                maxWidth: 400,
+                maxHeight: 400,
             }}
         >
             <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
                 {results.map((listitem) => (
-                    <>
-                        <ListItem key={listitem.openDoarId} alignItems="flex-start">
+                    <React.Fragment key={listitem.id}>
+                        <ListItem alignItems="flex-start">
                             <ListItemAvatar>
-                                <Avatar alt="" src={listitem.logo} />
+                                <Avatar alt="" src={listitem.dataProviders.logo} />
                             </ListItemAvatar>
                             <ListItemText
-                                primary={listitem.institutionName}
+                                primary={listitem.title}
                                 secondary={
-                                    <React.Fragment>
-                                        <Typography
-                                            sx={{ display: 'inline' }}
-                                            component="span"
-                                            variant="body2"
-                                            color="text.primary"
-                                        >
-                                            <Link href={listitem.homepageUrl} underline="none">
-                                                {listitem.name + "\n"}
-                                            </Link>
+                                    <Typography
+                                        sx={{ display: 'inline' }}
+                                        component="span"
+                                        variant="body2"
+                                        color="text.primary"
+                                    >
+                                        <Link href={listitem.downloadUrl} underline="none">
+                                            {"download "}
+                                        </Link>
 
-                                            {listitem.openDoarId + "\n"}
-                                            {listitem.email}
-                                        </Typography>
-                                    </React.Fragment>
+                                        {listitem.publisher}
+                                        {listitem.yearPublished}
+                                    </Typography>
                                 }
                             />
                         </ListItem>
                         <Divider variant="inset" component="li" />
-                    </>
+                    </React.Fragment>
                 ))}
             </List>
         </Box>

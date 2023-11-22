@@ -13,6 +13,7 @@ export default function SearchDisplay() {
                 height: 300,
                 minWidth: 300,
                 minHeight: 300,
+                padding: 20,
                 bgcolor: "FCFCFC",
                 flexDirection: 'column',
                 alignItems: 'center',
