@@ -1,44 +1,55 @@
 import React from "react";
 import { Box, TextField } from "@mui/material";
 
-const SearchBar = () => {
+export default function SearchBar() {
 
     const apiKey = "j8F30WKHQaLkZVnEI4xU6Pd1Gc2BNwil"
-    const apiEndpoint = "https://api.core.ac.uk/v3"
+    const apiEndpoint = "https://api.core.ac.uk/v3/"
 
-    async function getEntity(urlFragment) {
+    async function getEntity(urlFragment, query, limit = 10) {
         const headers = {
-            "Authorization": "Bearer " + apiKey
+            "Authorization": "Bearer " + apiKey,
+            "Content-Type": "application/json",
         };
 
-        //const query = apiEndpoint + urlFragment;
-        const query = apiEndpoint + "/search?text=ML";
+        const requestBody = JSON.stringify({ q: query, limit: limit });
+
         try {
-            const response = await fetch(query, {
-                method: 'GET',
-                headers: headers
+            const response = await fetch(`${apiEndpoint}${urlFragment}`, {
+                method: "POST",
+                headers: headers,
+                body: requestBody,
             });
 
             if (response.ok) {
-                const json = await response.json();
-                return { data: json, elapsed: response.elapsed };
+                const jsonResponse = await response.json();
+                const elapsedSeconds = response.headers.get("elapsed-time");
+                return [jsonResponse, elapsedSeconds];
             } else {
                 console.error(`Error code ${response.status}, ${await response.text()}`);
             }
         } catch (error) {
-            console.error('Error:', error.message);
+            console.error("Error:", error);
         }
     }
 
     async function handleSubmit(event) {
-
         event.preventDefault()
-        console.log(event.target.value)
 
-        getEntity("data-providers/1/outputs")
-            .then((data) => {
-                console.log(JSON.stringify(data, null, 2))
+        getEntity("search/data-providers", "location.countryCode:" + event.target.search.value)
+            .then((results) => {
+                const data_providers = results[0].results
+                console.log(data_providers)
+                
             })
+        /*
+                //location.countryCode can be from dropdown : [us, gb, ca]
+                getEntity("search/data-providers", "location.countryCode:" + event.target.search.value)
+                    .then((results) => {
+                        const data_providers = results[0].results
+                        console.log(data_providers)
+                    })
+        */
 
     }
 
@@ -53,16 +64,14 @@ const SearchBar = () => {
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
-            minHeight="100vh"
             onSubmit={handleSubmit}
         >
             <TextField
-                id="filled-basic"
-                label="Search"
+                id="search"
+                label="search"
                 variant="filled"
                 onChange={handleChange}
             />
         </Box>
     )
 }
-export default SearchBar;
