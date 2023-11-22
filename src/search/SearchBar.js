@@ -1,10 +1,13 @@
 import React from "react";
 import { Box, TextField } from "@mui/material";
+import { useSearchResults } from "./SearchStore.js"
 
 export default function SearchBar() {
 
     const apiKey = "j8F30WKHQaLkZVnEI4xU6Pd1Gc2BNwil"
     const apiEndpoint = "https://api.core.ac.uk/v3/"
+
+    const setResults = useSearchResults((state) => state.setResults)
 
     async function getEntity(urlFragment, query, limit = 10) {
         const headers = {
@@ -12,7 +15,8 @@ export default function SearchBar() {
             "Content-Type": "application/json",
         };
 
-        const requestBody = JSON.stringify({ q: query, limit: limit });
+        query = "gb"
+        const requestBody = JSON.stringify({ q: "location.countryCode:"+query, limit: limit });
 
         try {
             const response = await fetch(`${apiEndpoint}${urlFragment}`, {
@@ -36,11 +40,11 @@ export default function SearchBar() {
     async function handleSubmit(event) {
         event.preventDefault()
 
-        getEntity("search/data-providers", "location.countryCode:" + event.target.search.value)
+        getEntity("search/data-providers",  event.target.search.value)
             .then((results) => {
                 const data_providers = results[0].results
-                console.log(data_providers)
-                
+                //console.log(data_providers)
+                setResults(data_providers)
             })
         /*
                 //location.countryCode can be from dropdown : [us, gb, ca]
