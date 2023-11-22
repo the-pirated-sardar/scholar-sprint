@@ -9,14 +9,13 @@ export default function SearchBar() {
 
     const setResults = useSearchResults((state) => state.setResults)
 
-    async function getEntity(urlFragment, query, limit = 10) {
+    async function query_api(urlFragment, query, limit = 5) {
         const headers = {
             "Authorization": "Bearer " + apiKey,
             "Content-Type": "application/json",
         };
 
-        query = "gb"
-        const requestBody = JSON.stringify({ q: "location.countryCode:"+query, limit: limit });
+        const requestBody = JSON.stringify({ q: query, limit: limit });
 
         try {
             const response = await fetch(`${apiEndpoint}${urlFragment}`, {
@@ -37,28 +36,30 @@ export default function SearchBar() {
         }
     }
 
+    /*
+    async function getDataPoviders(event) {
+        event.preventDefault()
+        getEntity("search/data-providers")
+            .then((results) => {
+                const data_providers = results[0].results
+                setResults(data_providers)
+            })
+    }
+    */
+
+    async function getWorks(query) {
+        query_api("search/works", query = "covid AND yearPublished>=2010 AND yearPublished<=2021")
+        .then((results) => {
+            console.log(results)
+            const hits = results[0].results
+            setResults(hits)
+        })
+    }
+
     async function handleSubmit(event) {
         event.preventDefault()
 
-        getEntity("search/data-providers",  event.target.search.value)
-            .then((results) => {
-                const data_providers = results[0].results
-                //console.log(data_providers)
-                setResults(data_providers)
-            })
-        /*
-                //location.countryCode can be from dropdown : [us, gb, ca]
-                getEntity("search/data-providers", "location.countryCode:" + event.target.search.value)
-                    .then((results) => {
-                        const data_providers = results[0].results
-                        console.log(data_providers)
-                    })
-        */
-
-    }
-
-    const handleChange = (event) => {
-        //console.log(event.target.value)
+        getWorks(event.target.search.value)
     }
 
     return (
@@ -74,7 +75,7 @@ export default function SearchBar() {
                 id="search"
                 label="search"
                 variant="filled"
-                onChange={handleChange}
+                defaultValue="covid AND yearPublished>=2010 AND yearPublished<=2021"
             />
         </Box>
     )
