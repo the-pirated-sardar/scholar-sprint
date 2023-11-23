@@ -1,15 +1,17 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import SearchDisplay from './search/SearchDisplay.js'
+import GPTDisplay from './summarize/GPTDisplay.js'
+
 import './App.css'
 
 
 function App() {
 
-  
+
   return (
     <Box
-      sx = {{
+      sx={{
         display: 'flex',
         bgcolor: "FCFCFC",
         flexDirection: 'column',
@@ -18,6 +20,7 @@ function App() {
       }}
     >
       <SearchDisplay />
+      <GPTDisplay />
     </Box>
   );
 }
