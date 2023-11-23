@@ -40,8 +40,7 @@ export default function SearchResults() {
                                             {"download "}
                                         </Link>
 
-                                        {listitem.publisher}
-                                        {listitem.yearPublished}
+                                        {`${listitem.publisher} ${listitem.yearPublished}`}
                                     </Typography>
                                 }
                             />
