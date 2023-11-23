@@ -8,7 +8,7 @@ const prefix1 = "I want to optimize the search query sent to CORE API to fetch r
 
 const submitButton = document.querySelector('#submit'); // HTML section with id="submit" will trigger the function when clicked
 const inputElement = document.querySelector('input'); // HTML input section will be the input for the function. Assumed only one input element exists
-
+const outputElement = document.querySelector('#output'); // HTML section with id="output" will be the output for the function
 
 
 fullPrompt1 = prefix1 + inputElement.value;
@@ -31,6 +31,12 @@ async function fetchData() {
         const response = await fetch("https://api.openai.com/v1/chat/completions", options)
         const data = await response.json();
         console.log(data);
+        outputElement.textContent = data.choices[0].message.content
+        // if (data.choices[0].messages.content){
+        //     pElement = document.createElement('p');
+        //     pElement.textContent = inputElement.value;
+        //     historyElement.append(pElement);
+        // }
     }catch (error){ 
         console.error('Error fetching data:', error); 
 
