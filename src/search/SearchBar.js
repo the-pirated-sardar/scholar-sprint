@@ -47,8 +47,8 @@ export default function SearchBar() {
     }
     */
 
-    async function getWorks(query) {
-        query_api("search/works", query = "covid AND yearPublished>=2010 AND yearPublished<=2021")
+    async function getWorks(query = "covid AND yearPublished>=2010 AND yearPublished<=2021") {
+        query_api("search/works", query)
         .then((results) => {
             console.log(results)
             const hits = results[0].results

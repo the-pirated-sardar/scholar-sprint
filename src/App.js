@@ -1,10 +1,12 @@
-import React from 'react';
-import { Box } from '@mui/material';
-import SearchDisplay from './search/SearchDisplay.js';
-import './App.css';
+import React from 'react'
+import { Box } from '@mui/material'
+import SearchDisplay from './search/SearchDisplay.js'
+import './App.css'
 
 
 function App() {
+
+  
   return (
     <Box
       sx = {{
