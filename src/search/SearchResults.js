@@ -25,7 +25,7 @@ export default function SearchResults() {
                     <React.Fragment key={listitem.id}>
                         <ListItem alignItems="flex-start">
                             <ListItemAvatar>
-                                <Avatar alt="" src={listitem.dataProviders.logo} />
+                                <Avatar alt="" src={listitem.dataProviders[0].logo} />
                             </ListItemAvatar>
                             <ListItemText
                                 primary={listitem.title}
@@ -40,8 +40,7 @@ export default function SearchResults() {
                                             {"download "}
                                         </Link>
 
-                                        {listitem.publisher}
-                                        {listitem.yearPublished}
+                                        {`${listitem.publisher} ${listitem.yearPublished}`}
                                     </Typography>
                                 }
                             />

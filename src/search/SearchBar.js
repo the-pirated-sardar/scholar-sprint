@@ -1,12 +1,11 @@
 import React from "react";
 import { Box, TextField } from "@mui/material";
-import { useSearchResults } from "./SearchStore.js"
+import { useSearchResults, coreapiStore } from "./SearchStore.js"
 
 export default function SearchBar() {
 
-    const apiKey = "j8F30WKHQaLkZVnEI4xU6Pd1Gc2BNwil"
-    const apiEndpoint = "https://api.core.ac.uk/v3/"
-
+    const apiKey = coreapiStore(((state) => state.apiKey))
+    const apiEndpoint = coreapiStore(((state) => state.apiEndpoint))
     const setResults = useSearchResults((state) => state.setResults)
 
     async function query_api(urlFragment, query, limit = 5) {
@@ -47,8 +46,8 @@ export default function SearchBar() {
     }
     */
 
-    async function getWorks(query) {
-        query_api("search/works", query = "covid AND yearPublished>=2010 AND yearPublished<=2021")
+    async function getWorks(query = "covid AND yearPublished>=2010 AND yearPublished<=2021") {
+        query_api("search/works", query)
         .then((results) => {
             console.log(results)
             const hits = results[0].results
@@ -75,7 +74,7 @@ export default function SearchBar() {
                 id="search"
                 label="search"
                 variant="filled"
-                defaultValue="covid AND yearPublished>=2010 AND yearPublished<=2021"
+                defaultValue="React"
             />
         </Box>
     )
