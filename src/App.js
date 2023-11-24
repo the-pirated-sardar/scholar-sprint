@@ -1,27 +1,21 @@
-import React from 'react'
-import { Box } from '@mui/material'
-import SearchDisplay from './search/SearchDisplay.js'
-import GPTDisplay from './summarize/GPTDisplay.js'
-
-import './App.css'
-
+import React from 'react';
+import './App.css';
+import {BrowserRouter as Router, Routes, Route} from "react-router-dom"; 
+import Login from './login.js';
+import Search from './pages/SearchPage.js'
+import Summary from './pages/SummaryPage.js'
 
 function App() {
-
-
   return (
-    <Box
-      sx={{
-        display: 'flex',
-        bgcolor: "FCFCFC",
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <SearchDisplay />
-      <GPTDisplay />
-    </Box>
+    <div>
+      <Router>
+        <Routes>
+          <Route path ="/" element={<Login/>}/>
+          <Route path ="/search" element={<Search/>}/>
+          <Route path ="/summary" element={<Summary/>}/>
+        </Routes>
+    </Router>
+    </div>
   );
 }
 

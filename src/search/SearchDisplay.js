@@ -3,6 +3,7 @@ import { Box } from "@mui/material";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 
+
 export default function SearchDisplay() {
 
     return (
@@ -12,7 +13,6 @@ export default function SearchDisplay() {
                 maxHeight: 600,
                 maxWidth: 600,
                 padding: 10,
-                bgcolor: "FCFCFC",
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',
@@ -20,7 +20,7 @@ export default function SearchDisplay() {
             }}
         >
             <SearchBar />
-            <SearchResults />
+            <SearchResults/>
         </Box>
     )
 }
