@@ -13,7 +13,11 @@ export default function Home() {
                 justifyContent: 'center',
             }}
         >
-            <Button variant="outlined"><Link to={`/dashboard`}>Go To Dashboard</Link></Button>
+            <Button variant="outlined">
+                <Link to={`/dashboard`}>
+                    Go To Dashboard
+                </Link>
+            </Button>
         </Box>
     )
 }
