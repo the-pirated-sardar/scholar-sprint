@@ -1,28 +1,37 @@
 import React from 'react'
-import { Box } from '@mui/material'
-import SearchDisplay from './search/SearchDisplay.js'
-import GPTDisplay from './summarize/GPTDisplay.js'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+import Layout, { loader as rootLoader } from "./routes/Layout";
+import Home from "./routes/Home";
+import Dashboard from "./routes/Dashboard";
+import Contact from "./routes/Contact";
+import NotFoundPage from "./routes/NotFound";
 
 import './App.css'
 
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    loader: rootLoader,
+    errorElement: <NotFoundPage />,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+    ],
+  },
+]);
 
-function App() {
-
-
-  return (
-    <Box
-      sx={{
-        display: 'flex',
-        bgcolor: "FCFCFC",
-        flexDirection: 'column',
-        alignItems: 'center',
-        justifyContent: 'center',
-      }}
-    >
-      <SearchDisplay />
-      <GPTDisplay />
-    </Box>
-  );
+export default function App() {
+  return <RouterProvider router={router} />
 }
-
-export default App;
