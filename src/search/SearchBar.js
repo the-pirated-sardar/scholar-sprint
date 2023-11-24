@@ -1,5 +1,5 @@
 import React from "react";
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { useSearchResults, coreapiStore } from "./SearchStore.js"
 
 export default function SearchBar() {
@@ -48,11 +48,11 @@ export default function SearchBar() {
 
     async function getWorks(query = "covid AND yearPublished>=2010 AND yearPublished<=2021") {
         query_api("search/works", query)
-        .then((results) => {
-            console.log(results)
-            const hits = results[0].results
-            setResults(hits)
-        })
+            .then((results) => {
+                console.log(results)
+                const hits = results[0].results
+                setResults(hits)
+            })
     }
 
     async function handleSubmit(event) {
@@ -64,17 +64,29 @@ export default function SearchBar() {
     return (
         <Box
             component="form"
+            sx={{
+                height: 1,
+                width: 1,
+            }}
             display="flex"
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
             onSubmit={handleSubmit}
         >
+            <Typography variant="h5">
+                What are you looking for?
+            </Typography>
             <TextField
                 id="search"
+                sx={{
+                    height: 1,
+                    width: 1,
+                    margin: 3,
+                }}
                 label="search"
                 variant="filled"
-                defaultValue="React"
+                defaultValue="Machine Learning"
             />
         </Box>
     )

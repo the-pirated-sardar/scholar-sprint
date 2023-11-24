@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Box, Typography, Link, List, ListItem, ListItemText, ListItemAvatar, Avatar, Divider } from "@mui/material";
+import { Box, Typography, Link, List, ListItem, ListItemText, ListItemAvatar, ListItemButton, Avatar, Divider } from "@mui/material";
 import { useSearchResults } from "./SearchStore.js"
 
 export default function SearchResults() {
@@ -16,11 +16,9 @@ export default function SearchResults() {
                 display: "flex",
                 width: 1,
                 height: 1,
-                maxWidth: 400,
-                maxHeight: 400,
             }}
         >
-            <List sx={{ width: '100%', maxWidth: 360, bgcolor: 'background.paper' }}>
+            <List sx={{ width: '100%', bgcolor: 'background.paper' }}>
                 {results.map((listitem) => (
                     <React.Fragment key={listitem.id}>
                         <ListItem alignItems="flex-start">
@@ -28,6 +26,9 @@ export default function SearchResults() {
                                 <Avatar alt="" src={listitem.dataProviders[0].logo} />
                             </ListItemAvatar>
                             <ListItemText
+                                sx={{
+                                    width: 500,
+                                }}
                                 primary={listitem.title}
                                 secondary={
                                     <Typography
@@ -40,10 +41,11 @@ export default function SearchResults() {
                                             {"download "}
                                         </Link>
 
-                                        {`${listitem.publisher} ${listitem.yearPublished}`}
+                                        {` | ${listitem.publisher ? listitem.publisher : "Published"} | ${listitem.yearPublished}`}
                                     </Typography>
                                 }
                             />
+                            <ListItemButton />
                         </ListItem>
                         <Divider variant="inset" component="li" />
                     </React.Fragment>
