@@ -9,11 +9,9 @@ export default function SearchDisplay() {
         <Box
             sx={{
                 display: 'flex',
-                width: 300,
-                height: 300,
-                minWidth: 300,
-                minHeight: 300,
-                padding: 20,
+                maxHeight: 600,
+                maxWidth: 600,
+                padding: 10,
                 bgcolor: "FCFCFC",
                 flexDirection: 'column',
                 alignItems: 'center',
