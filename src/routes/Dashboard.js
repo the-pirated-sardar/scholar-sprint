@@ -2,7 +2,7 @@ import { Box } from "@mui/material"
 import SearchDisplay from "../search/SearchDisplay"
 import GPTDisplay from "../summarize/GPTDisplay"
 
-export default function Home() {
+export default function Dashboard() {
     return (
         <Box
             sx={{
