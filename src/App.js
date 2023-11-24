@@ -1,22 +1,37 @@
-import React from 'react';
-import './App.css';
-import {BrowserRouter as Router, Routes, Route} from "react-router-dom"; 
-import Login from './login.js';
-import Search from './pages/SearchPage.js'
-import Summary from './pages/SummaryPage.js'
+import React from 'react'
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
 
-function App() {
-  return (
-    <div>
-      <Router>
-        <Routes>
-          <Route path ="/" element={<Login/>}/>
-          <Route path ="/search" element={<Search/>}/>
-          <Route path ="/summary" element={<Summary/>}/>
-        </Routes>
-    </Router>
-    </div>
-  );
+import Layout, { loader as rootLoader } from "./routes/Layout";
+import Home from "./routes/Home";
+import Dashboard from "./routes/Dashboard";
+import Contact from "./routes/Contact";
+import NotFoundPage from "./routes/NotFound";
+
+import './App.css'
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <Layout />,
+    loader: rootLoader,
+    errorElement: <NotFoundPage />,
+    children: [
+      { index: true, element: <Home /> },
+      {
+        path: "dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "contact",
+        element: <Contact />,
+      },
+    ],
+  },
+]);
+
+export default function App() {
+  return <RouterProvider router={router} />
 }
-
-export default App;
