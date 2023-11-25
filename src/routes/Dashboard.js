@@ -1,20 +1,29 @@
-import { Box } from "@mui/material"
-import SearchDisplay from "../search/SearchDisplay"
-import GPTDisplay from "../summarize/GPTDisplay"
+import { Box, Typography} from "@mui/material"
+import SearchBar from "../search/SearchBar";
 
 export default function Home() {
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                bgcolor: "FCFCFC",
+        <Box sx={{
+            Display: 'flex', 
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-end', 
+            textAlign: 'center', 
+        }}>
+            <Typography variant="h5">
+                What are you looking for?
+            </Typography>
+            <Box sx={{
+                Display: 'flex', 
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center',
-            }}
-        >
-            <SearchDisplay />
-            <GPTDisplay />
+                justifyContent: 'center', 
+                textAlign: 'center', 
+                margin: 20, 
+                width: 600
+            }}>
+                <SearchBar/>
+            </Box>
         </Box>
     )
 }

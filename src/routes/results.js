@@ -1,27 +1,26 @@
 import React from 'react'
 import { Box } from '@mui/material'
-import GPTDisplay from '../summarize/GPTDisplay.js'
+import SearchBar from "../search/SearchBar";
 import { useNavigate } from "react-router-dom"; 
-import Search from './SearchPage.js'
+import SearchResults from "../search/SearchResults";
+import OptimizeQueryButton from '../summarize/OptimizeQuery';
 
-export default function Summary() {
+export default function Results() {
   const navigate = useNavigate(); 
 
   return (
     <Box
       sx={{
         display: 'flex',
-        bgcolor: "Tomato",
         flexDirection: 'column',
         alignItems: 'center',
         justifyContent: 'center',
+        width: 600, 
       }}
     >
-      <GPTDisplay />
-      <Search />
-      <button onClick={() => {navigate("/search")}}>
-        go to search
-      </button>
+        <SearchResults/>
+        <SearchBar/>
+        <OptimizeQueryButton />
     </Box>
   );
 }

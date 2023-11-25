@@ -1,5 +1,5 @@
 import { Outlet, Link, useLoaderData, } from "react-router-dom";
-import { Box, Button, Grid } from "@mui/material"
+import { Box, Button, Grid } from "@mui/material"; 
 
 async function foo() {
     return `{data: "dummy data"}`
@@ -16,28 +16,41 @@ const Layout = () => {
     const { data } = useLoaderData();
 
     return (
-        <Grid
-            container
-            spacing={0}
-            direction="column"
-            alignItems="center"
-            justifyContent="center"
-            sx={{ minHeight: '100vh' }}
-        >
-            <Grid item xs={3}>
-                <Box
+            <div style=
+            {{
+                backgroundImage: `url(${require('../images/logo.png')})`, 
+                backgroundRepeat: 'no-repeat',
+                backgroundPosition: '50% 50%',
+                backgroundSize: '70vh', 
+                backgroundBlendMode: 'difference', 
+                backgroundColor: '#1A181B', 
+                zIndex: 1
+            }}>
+            <Grid
+                container
+                spacing={0}
+                direction="column"
+                alignItems="center"
+                justifyContent="center"
+                sx={{ 
+                    minHeight: '100vh'
+                }}
+            >
+                {/* <Grid item xs={3}>
+                    <Box
 
-                >
-                    <Button variant="outlined"><Link to={`/`}>Home</Link></Button>
-                </Box>
+                    >
+                        <Button variant="outlined"><Link to={`/`}>Home</Link></Button>
+                    </Box>
+                </Grid> */}
+                <Grid item xs={12}>
+                    <Outlet />
+                </Grid>
+                {/* <Grid item xs={3}>
+                    {data}
+                </Grid> */}
             </Grid>
-            <Grid item xs={3}>
-                <Outlet />
-            </Grid>
-            <Grid item xs={3}>
-                {data}
-            </Grid>
-        </Grid>
+        </div>
     )
 };
 

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom"
 import { Box, Button } from "@mui/material";
 import { useSearchResults } from "../search/SearchStore.js"
 import { useGPTResults} from "./GPTStore.js"
@@ -60,10 +61,10 @@ export default function OptimizeQueryButton() {
         >
             <Button
                 variant="outlined"
-                sx={{
-                    bgcolor: "#c2ffd4",
-                }}
                 onClick={handleClick}
+                sx={{
+                    color: 'white'
+                }}
             >
                 Optimize
             </Button>

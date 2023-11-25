@@ -7,20 +7,27 @@ import SearchResults from "./SearchResults";
 export default function SearchDisplay() {
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                maxHeight: 600,
-                maxWidth: 600,
-                padding: 10,
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-
-            }}
-        >
-            <SearchBar />
-            <SearchResults/>
+        <Box sx={{
+            flexDirection: 'column',
+            alignItems: 'center',
+            justifyContent: 'flex-start'
+        }}>
+            <Box
+                sx={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+            >
+                <SearchBar/>
+            </Box>
+            <Box
+                sx={{
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                }}
+            >
+                <SearchResults/>
+            </Box>
         </Box>
     )
 }

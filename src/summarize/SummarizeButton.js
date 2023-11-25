@@ -51,15 +51,13 @@ export default function SummarizeButton() {
 
     return (
         <Box
-
         >
             <Button
                 variant="outlined"
                 sx={{
-                    bgcolor: "#e2ffd4",
+                    color: 'white',
                 }}
-                // onClick={handleClick} taking out so we dont waste calls !PUT BACK LATER! 
-                onClick={() => {navigate("/Summary")}}
+                onClick={handleClick}  
             >
                 Summarize
             </Button>

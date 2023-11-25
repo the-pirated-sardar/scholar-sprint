@@ -9,6 +9,8 @@ import Home from "./routes/Home";
 import Dashboard from "./routes/Dashboard";
 import Contact from "./routes/Contact";
 import NotFoundPage from "./routes/NotFound";
+import Results from "./routes/results"; 
+import Summary from "./routes/SummaryPage"; 
 
 import './App.css'
 
@@ -28,6 +30,14 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
+      {
+      path: "results",
+      element: <Results />,
+      },
+      {
+        path: "summary",
+        element: <Summary />,
+        },
     ],
   },
 ]);

@@ -10,13 +10,10 @@ export default function GPTDisplay() {
             <Box
                 sx = {{
                     display: 'flex',
-                    maxHeight: 600,
-                    maxWidth: 600,
                     py: 10,
-                    px: 20, 
-                    flexDirection: 'row',
-                    alignItems: 'center',
-                    justifyContent: 'center',
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
                 }}
             >
                 <OptimizeQueryButton />
