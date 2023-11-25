@@ -5,14 +5,21 @@ import SummarizeButton from "./SummarizeButton";
 import GPTResults from "./GPTResults";
 
 export default function GPTDisplay() {
-
     return (
-        <Box
-
-        >
-            <OptimizeQueryButton />
-            <SummarizeButton />
+        <div>
+            <Box
+                sx = {{
+                    display: 'flex',
+                    py: 10,
+                    flexDirection: 'column',
+                    alignItems: 'flex-start',
+                    justifyContent: 'flex-start',
+                }}
+            >
+                <OptimizeQueryButton />
+                <SummarizeButton />
+            </Box>
             <GPTResults />
-        </Box>
+        </div>
     )
 }

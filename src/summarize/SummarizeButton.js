@@ -2,8 +2,11 @@ import React from "react";
 import { Box, Button } from "@mui/material";
 import { useSearchResults } from "../search/SearchStore.js"
 import { useGPTResults } from "./GPTStore.js";
+import { useNavigate } from "react-router-dom"; 
+
 
 export default function SummarizeButton() {
+    const navigate = useNavigate();
 
     const results = useSearchResults((state) => state.results)
     const setGPTResults = useGPTResults((state)=>state.setGPTResults)
@@ -48,14 +51,13 @@ export default function SummarizeButton() {
 
     return (
         <Box
-
         >
             <Button
                 variant="outlined"
                 sx={{
-                    bgcolor: "#e2ffd4",
+                    color: 'white',
                 }}
-                onClick={handleClick}
+                onClick={handleClick}  
             >
                 Summarize
             </Button>

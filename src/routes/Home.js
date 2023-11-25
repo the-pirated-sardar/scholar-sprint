@@ -20,7 +20,7 @@ export default function Home() {
         <Box
             sx={{
                 display: 'flex',
-                bgcolor: "FCFCFC",
+                blockSize: 'cover', 
                 flexDirection: 'column',
                 alignItems: 'center',
                 justifyContent: 'center',

@@ -12,7 +12,9 @@ import Home from "./routes/Home";
 import Contact from "./routes/Contact";
 import Login from './routes/Login';
 import ForgotPassword from './routes/ForgotPassword';
-import UpdateProfile from './routes/UpdateProfile';
+import UpdateProfile from './routes/UpdateProfile';import Results from "./routes/results"; 
+import Summary from "./routes/SummaryPage"; 
+
 import Signup from './routes/Signup';
 
 const router = createBrowserRouter([
@@ -47,6 +49,14 @@ const router = createBrowserRouter([
         path: "contact",
         element: <Contact />,
       },
+      {
+      path: "results",
+      element: <Results />,
+      },
+      {
+        path: "summary",
+        element: <Summary />,
+        },
     ],
   },
 ]);
