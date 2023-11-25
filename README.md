@@ -39,8 +39,8 @@ This web application is designed to help students/instructors research by provid
 
 ## AI Disclousre Forms:
 - [Prateek Singh Arora](AI_declarations/Milestone1_AI_Declaration_Prateek_Arora_301417287.pdf)
-- [Jovan Beas](AI_declarations/Project_Milestone1_AI_Disclosure_Jovan_Beas_301449584.pdf)
-- [Jerry Chen](Milestone1_AI_Declaration_Jerry_Chen_301433728.pdf)
+- [Jovan Beas](AI_declarations/Project_Milestone1_AI_Disclosure_Jovan_Beas_301449584.pdf)s
+- [Jerry Chen](AI_declarations/Milestone1_AI_Declaration_Jerry_Chen_301433728.pdf)
 - [Udham Lalli](AI_declarations/P1_AI_Declaration_Udhay_Lalli_301430162.pdf)
 
 ## Shared Documents Links
