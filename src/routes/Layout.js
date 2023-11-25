@@ -1,19 +1,26 @@
-import { Outlet, Link, useLoaderData, } from "react-router-dom";
-import { Box, Button, Grid } from "@mui/material"; 
+import React, { useEffect } from "react"
+import { Outlet, Link, useLoaderData } from "react-router-dom"
+import { Box, Button, Grid } from "@mui/material"
+import { useAuthStore } from "../auth/AuthStore"
 
 async function foo() {
     return `{data: "dummy data"}`
 }
 
 export async function loader() {
-    const data = await foo();
-    return { data };
+    const data = await foo()
+    return { data }
 }
 
-const Layout = () => {
+export default function Layout() {
 
-    // add sidebar, header, footer, etc
     const { data } = useLoaderData();
+    const { loading, init } = useAuthStore();
+
+    useEffect(() => {
+        init();
+    }, [init]);
+    // add sidebar, header, footer, etc
 
     return (
             <div style=
@@ -52,6 +59,4 @@ const Layout = () => {
             </Grid>
         </div>
     )
-};
-
-export default Layout;
+}

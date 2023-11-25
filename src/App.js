@@ -1,18 +1,21 @@
-import React from 'react'
+import React from 'react';
 import {
   createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+  RouterProvider
+} from 'react-router-dom';
+import PrivateRoute from './auth/PrivateRoute';
 
-import Layout, { loader as rootLoader } from "./routes/Layout";
+import Layout, { loader as rootLoader } from './routes/Layout';
+import NotFoundPage from './routes/NotFound';
+import Dashboard from './routes/Dashboard';
 import Home from "./routes/Home";
-import Dashboard from "./routes/Dashboard";
 import Contact from "./routes/Contact";
-import NotFoundPage from "./routes/NotFound";
-import Results from "./routes/results"; 
+import Login from './routes/Login';
+import ForgotPassword from './routes/ForgotPassword';
+import UpdateProfile from './routes/UpdateProfile';import Results from "./routes/results"; 
 import Summary from "./routes/SummaryPage"; 
 
-import './App.css'
+import Signup from './routes/Signup';
 
 const router = createBrowserRouter([
   {
@@ -24,7 +27,23 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: "dashboard",
-        element: <Dashboard />,
+        element: <PrivateRoute><Dashboard/></PrivateRoute>,
+      },
+      {
+        path: "update-profile",
+        element: <PrivateRoute><UpdateProfile/></PrivateRoute>,
+      },
+      {
+        path: "signup",
+        element: <Signup />,
+      },
+      {
+        path: "login",
+        element: <Login />,
+      },
+      {
+        path: "forgot-password",
+        element: <ForgotPassword />
       },
       {
         path: "contact",
@@ -43,5 +62,6 @@ const router = createBrowserRouter([
 ]);
 
 export default function App() {
+
   return <RouterProvider router={router} />
 }

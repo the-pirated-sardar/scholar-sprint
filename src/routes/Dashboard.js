@@ -1,7 +1,7 @@
 import { Box, Typography} from "@mui/material"
 import SearchBar from "../search/SearchBar";
 
-export default function Home() {
+export default function Dashboard() {
     return (
         <Box sx={{
             Display: 'flex', 
