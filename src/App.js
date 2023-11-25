@@ -25,11 +25,11 @@ const router = createBrowserRouter([
       { index: true, element: <Home /> },
       {
         path: "dashboard",
-        element: <PrivateRoute component={<Dashboard />} />,
+        element: <PrivateRoute><Dashboard/></PrivateRoute>,
       },
       {
         path: "update-profile",
-        element: <PrivateRoute component={<UpdateProfile />} />
+        element: <PrivateRoute><UpdateProfile/></PrivateRoute>,
       },
       {
         path: "signup",
