@@ -1,14 +1,14 @@
 import React from 'react'; 
-import { Box, Button, ListItem } from '@mui/material'; 
+import { Box, Button } from '@mui/material'; 
 import GPTResults from '../summarize/GPTResults.js'; 
-import { useNavigate, Link } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom"; 
 import SummarizeButton from "../summarize/SummarizeButton";
 import SearchBar from "../search/SearchBar";
-import { useGPTResults } from "../summarize/GPTStore.js"; 
+//import { useGPTResults } from "../summarize/GPTStore.js"; 
 
 export default function Summary() {
   const navigate = useNavigate(); 
-  const gptResults = useGPTResults((state) => state.gptResults)
+  //const gptResults = useGPTResults((state) => state.gptResults)
 
   return (
     <Box

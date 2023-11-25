@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom"
+//import { Link } from "react-router-dom"
 import { Box, Button } from "@mui/material";
 import { useSearchResults } from "../search/SearchStore.js"
 import { useGPTResults} from "./GPTStore.js"
