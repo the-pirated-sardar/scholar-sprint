@@ -1,8 +1,10 @@
-import React from "react"
+import React, { useEffect } from "react"
 import { Outlet, Link, useLoaderData } from "react-router-dom"
 import { Box, Button } from "@mui/material"
-import theme from "../themes/theme"
 import { useAuthStore } from "../auth/AuthStore"
+import Header from "../Layout/Header"
+import Footer from "../Layout/Footer"
+import theme from "../themes/theme"
 
 async function foo() {
     return `{data: "dummy data"}`
@@ -24,6 +26,7 @@ export default function Layout() {
 
     return (
         <Box sx={theme.rootTheme}>
+            <Header/>
             <Box sx={{}}>Scholar Sprint</Box>
             <Box sx={{}}>
                 <Button
@@ -44,6 +47,7 @@ export default function Layout() {
             </Box>
             <Box sx={{}} ><Outlet /></Box>
             <Box sx={{}}>{data}</Box>
+            <Footer/>
         </Box >
     )
 }
