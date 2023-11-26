@@ -1,9 +1,10 @@
 const theme = {
   rootTheme: {
-    width: '100vw',      // 100% of the viewport width
-    height: '100vh',     // 100% of the viewport height
+    minWidth: '100vw',      // 100% of the viewport width
+    minHeight: '100vh',     // 100% of the viewport height
     background: 'url("appBackground.png") center/cover no-repeat fixed',
     display: 'flex',
+    flexDirection: 'column',
     justifyContent: 'center',
     alignItems: 'center',
   },
