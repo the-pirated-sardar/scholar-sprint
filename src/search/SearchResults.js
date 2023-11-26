@@ -2,11 +2,9 @@ import React, { useEffect } from "react"
 import { Box, Typography, Link, List, ListItem, ListItemText, ListItemAvatar, ListItemButton, Avatar, Divider } from "@mui/material";
 import { useSearchResults } from "./SearchStore.js"
 import { useNavigate } from "react-router-dom"; 
-import { useGPTResults } from "../summarize/GPTStore.js"; 
 
 export default function SearchResults() {
-    const navigate = useNavigate();
-    const gptResults = useGPTResults((state) => state.gptResults)
+    const navigate = useNavigate()
 
     const results = useSearchResults((state) => state.results)
 
@@ -25,7 +23,7 @@ export default function SearchResults() {
             <List sx={{ width: '100%'}}>
                 {results.map((listitem) => (
                     <React.Fragment key={listitem.id}>
-                        <ListItem alignItems="flex-start" sx={{bgcolor: 'gray', opacity: 0.7}}>
+                        <ListItem alignItems="flex-start" sx={{bgcolor: 'white'}}>
                             <ListItemButton onClick={() => {navigate("/Summary")}}>
                                 <ListItemAvatar>
                                     <Avatar alt="" src={listitem.dataProviders[0].logo} />

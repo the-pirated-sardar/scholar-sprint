@@ -1,12 +1,12 @@
 import React from 'react'
 import { Box } from '@mui/material'
 import SearchBar from "../search/SearchBar";
-import { useNavigate } from "react-router-dom"; 
+//mport { useNavigate } from "react-router-dom"; 
 import SearchResults from "../search/SearchResults";
 import OptimizeQueryButton from '../summarize/OptimizeQuery';
 
 export default function Results() {
-  const navigate = useNavigate(); 
+  //const navigate = useNavigate(); 
 
   return (
     <Box

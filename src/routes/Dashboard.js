@@ -1,4 +1,4 @@
-import { Box, Typography} from "@mui/material"
+import { Box} from "@mui/material"
 import SearchBar from "../search/SearchBar";
 
 export default function Dashboard() {
@@ -10,9 +10,6 @@ export default function Dashboard() {
             justifyContent: 'flex-end', 
             textAlign: 'center', 
         }}>
-            <Typography variant="h5">
-                What are you looking for?
-            </Typography>
             <Box sx={{
                 Display: 'flex', 
                 flexDirection: 'column',

@@ -2,6 +2,7 @@ import React, { useRef, useState } from 'react';
 import { Card, CardContent, Typography, TextField, Button, Alert, Link } from '@mui/material';
 import { useAuthStore } from '../auth/AuthStore';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import theme from '../themes/theme';
 
 export default function Login() {
   const emailRef = useRef();
@@ -27,7 +28,7 @@ export default function Login() {
   };
 
   return (
-    <Card>
+    <Card sx={theme.authTheme}>
       <CardContent>
         <Typography variant="h5" align="center" gutterBottom>
           Log In
@@ -58,9 +59,9 @@ export default function Login() {
             disabled={loading}
             fullWidth
             variant="contained"
-            color="primary"
+            sx={theme.buttonTheme}
             type="submit"
-            style={{ marginTop: '16px' }}
+            marginTop='16px'
           >
             Log In
           </Button>
