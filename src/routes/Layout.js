@@ -1,7 +1,8 @@
 import React, { useEffect } from "react"
 import { Outlet, Link, useLoaderData } from "react-router-dom"
-import { Box, Button, Grid } from "@mui/material"
+import { Box, Button } from "@mui/material"
 import { useAuthStore } from "../auth/AuthStore"
+import theme from "../themes/theme"
 
 async function foo() {
     return `{data: "dummy data"}`
@@ -20,44 +21,21 @@ export default function Layout() {
     useEffect(() => {
         init();
     }, [init]);
-    // add sidebar, header, footer, etc
 
-    return (
-        //change div to Box
-        <div style=
-            {{
-                backgroundImage: `./logo.png`,
-                backgroundRepeat: 'no-repeat',
-                backgroundPosition: '50% 50%',
-                backgroundSize: '70vh',
-                backgroundBlendMode: 'difference',
-                backgroundColor: '#1A181B',
-                zIndex: 1
-            }}>
-
-            {!loading &&
-                <Grid
-                    container
-                    spacing={0}
-                    direction="column"
-                    alignItems="center"
-                    justifyContent="center"
-                    sx={{
-                        minHeight: '100vh'
-                    }}
-                >
-                    <Grid item xs={3}>
-                        <Box
-
-                        >
-                            <Button variant="outlined"><Link to={`/`}>Home</Link></Button>
-                        </Box>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <Outlet />
-                    </Grid>
-                </Grid>
-            }
-        </div>
-    )
+    return !loading ? (
+        <Box sx={theme.rootTheme}>
+            <Box sx={{}}>Scholar Sprint</Box>
+            <Box sx={{}}>
+                <Button
+                    variant="contained"
+                    component={Link}
+                    to="/"
+                    sx={theme.buttonTheme}>
+                    Home
+                </Button>
+            </Box>
+            <Box sx={{}} ><Outlet /></Box>
+            <Box sx={{}}>{data}</Box>
+        </Box >
+    ) : "loading"
 }

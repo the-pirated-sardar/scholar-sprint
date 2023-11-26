@@ -23,7 +23,7 @@ export default function SearchResults() {
             <List sx={{ width: '100%'}}>
                 {results.map((listitem) => (
                     <React.Fragment key={listitem.id}>
-                        <ListItem alignItems="flex-start" sx={{bgcolor: 'gray', opacity: 0.7}}>
+                        <ListItem alignItems="flex-start" sx={{bgcolor: 'white'}}>
                             <ListItemButton onClick={() => {navigate("/Summary")}}>
                                 <ListItemAvatar>
                                     <Avatar alt="" src={listitem.dataProviders[0].logo} />

@@ -1,7 +1,16 @@
 import React from "react";
-import { Box, TextField } from "@mui/material";
+import { Box, TextField, Typography } from "@mui/material";
 import { useSearchResults, coreapiStore } from "./SearchStore.js"
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
+
+const searchBarStyle = {
+    height: 1,
+    width: 1,
+    background: 'white',
+    color: "white"
+
+}
+
 
 export default function SearchBar() {
 
@@ -56,7 +65,7 @@ export default function SearchBar() {
             })
     }
 
-    const navigate = useNavigate(); 
+    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault()
@@ -68,26 +77,24 @@ export default function SearchBar() {
     return (
         <Box
             component="form"
-            sx={{
-                height: 1,
-                width: 1,
-                color: "gray"
-            }}
             display="flex"
             flexDirection="column"
             justifyContent="center"
             alignItems="center"
             onSubmit={handleSubmit}
         >
-            <TextField 
-                fullWidth 
+            <Box sx={{
+                color: "white",
+            }}>
+                <Typography variant="h5">
+                    What are you looking for?
+                </Typography>
+            </Box>
+            <TextField
+                fullWidth
                 id="search"
-                variant="filled"
-                color="secondary"
-                sx={{
-                    bgcolor: 'gray', 
-                    opacity: 0.6
-                }}
+                variant="outlined"
+                sx={searchBarStyle}
                 label="search"
                 defaultValue="Machine Learning"
             />
