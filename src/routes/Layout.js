@@ -1,8 +1,8 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Outlet, Link, useLoaderData } from "react-router-dom"
 import { Box, Button } from "@mui/material"
-import { useAuthStore } from "../auth/AuthStore"
 import theme from "../themes/theme"
+import { useAuthStore } from "../auth/AuthStore"
 
 async function foo() {
     return `{data: "dummy data"}`
@@ -15,14 +15,14 @@ export async function loader() {
 
 export default function Layout() {
 
-    const { data } = useLoaderData();
-    const { loading, init } = useAuthStore();
+    const { data } = useLoaderData()
+    const { currentUser } = useAuthStore()
+    
+    const verifyAuth = () => {
+        console.log(currentUser)
+    }
 
-    useEffect(() => {
-        init();
-    }, [init]);
-
-    return !loading ? (
+    return (
         <Box sx={theme.rootTheme}>
             <Box sx={{}}>Scholar Sprint</Box>
             <Box sx={{}}>
@@ -30,12 +30,20 @@ export default function Layout() {
                     variant="contained"
                     component={Link}
                     to="/"
-                    sx={theme.buttonTheme}>
+                    sx={theme.buttonTheme}
+                >
                     Home
+                </Button>
+                <Button
+                    variant="contained"
+                    sx={theme.buttonTheme}
+                    onClick={verifyAuth}
+                >
+                    Verify Auth
                 </Button>
             </Box>
             <Box sx={{}} ><Outlet /></Box>
             <Box sx={{}}>{data}</Box>
         </Box >
-    ) : "loading"
+    )
 }

@@ -1,18 +1,11 @@
-import React, { useEffect } from "react"
-import { Link } from "react-router-dom"
-import { Box, Button, Card, CardContent, Typography } from "@mui/material"
-import { useAuthStore } from '../auth/AuthStore'
-import { useNavigate } from "react-router-dom"
+import React from "react"
+import { Card, CardContent, Box, Typography, Button } from "@mui/material"
+import { Link, useNavigate } from "react-router-dom"
+import { useAuthStore } from "../auth/AuthStore"
 
-export default function Home() {
-    const { currentUser, logout } = useAuthStore();
-    const navigate = useNavigate();
-
-    const { loading, init } = useAuthStore();
-
-    useEffect(() => {
-        init();
-    }, [init]);
+const Profile = () => {
+    const {currentUser, logout} = useAuthStore()
+    const navigate = useNavigate()
 
     async function handleLogout() {
         try {
@@ -23,7 +16,7 @@ export default function Home() {
         }
     }
 
-    return !loading ? (
+    return (
         <Box
             sx={{
                 display: 'flex',
@@ -39,15 +32,17 @@ export default function Home() {
                     <Typography variant="h5" align="center" gutterBottom>
                         Profile
                     </Typography>
-                    {currentUser ? `Welcome ${currentUser.email}` : "Not Logged In"}
+                    {currentUser ? `${currentUser.email.split('@')[0]}'s profile`: "Not Logged In"}
                 </CardContent>
                 <CardContent>
-                    <Button variant="outlined" component={Link} to="/profile">Profile</Button>
+                    <Button variant="outlined" component={Link} to="/update-profile">Update Profile</Button>
                     <Button variant="text" onClick={handleLogout}>Log Out</Button>
                     <Button variant="outlined" component={Link} to="/dashboard">Go To Dashboard</Button>
                 </CardContent>
 
             </Card>
-        </Box>
-    ) : "loading"
+        </Box >
+    )
 }
+
+export default Profile
