@@ -16,6 +16,7 @@ import UpdateProfile from './routes/UpdateProfile'; import Results from "./route
 import Summary from "./routes/SummaryPage";
 
 import Signup from './routes/Signup';
+import Profile from './routes/Profile';
 
 const router = createBrowserRouter([
   {
@@ -32,6 +33,10 @@ const router = createBrowserRouter([
       {
         path: "update-profile",
         element: <PrivateRoute><UpdateProfile /></PrivateRoute>,
+      },
+      {
+        path: "profile",
+        element: <Profile />,
       },
       {
         path: "signup",
