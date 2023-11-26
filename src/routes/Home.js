@@ -5,10 +5,10 @@ import { useAuthStore } from '../auth/AuthStore'
 import { useNavigate } from "react-router-dom"
 
 export default function Home() {
-    const { currentUser, logout } = useAuthStore();
+    const { logout } = useAuthStore();
     const navigate = useNavigate();
 
-    const { loading, init } = useAuthStore();
+    const { init } = useAuthStore();
 
     useEffect(() => {
         init();
@@ -23,7 +23,7 @@ export default function Home() {
         }
     }
 
-    return !loading ? (
+    return (
         <Box
             sx={{
                 display: 'flex',
@@ -34,20 +34,17 @@ export default function Home() {
             }}
         >
             <Card>
-
                 <CardContent>
-                    <Typography variant="h5" align="center" gutterBottom>
-                        Profile
+                    <Typography>
+                        A POWERFUL Research Tool
                     </Typography>
-                    {currentUser ? `Welcome ${currentUser.email}` : "Not Logged In"}
                 </CardContent>
                 <CardContent>
                     <Button variant="outlined" component={Link} to="/profile">Profile</Button>
-                    <Button variant="text" onClick={handleLogout}>Log Out</Button>
                     <Button variant="outlined" component={Link} to="/dashboard">Go To Dashboard</Button>
+                    <Button variant="text" onClick={handleLogout}>Log Out</Button>
                 </CardContent>
-
             </Card>
         </Box>
-    ) : "loading"
+    )
 }

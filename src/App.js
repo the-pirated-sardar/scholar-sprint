@@ -5,7 +5,7 @@ import {
 } from 'react-router-dom';
 import PrivateRoute from './auth/PrivateRoute';
 
-import Layout, { loader as rootLoader } from './routes/Layout';
+import Layout from './routes/Layout';
 import NotFoundPage from './routes/NotFound';
 import Dashboard from './routes/Dashboard';
 import Home from "./routes/Home";
@@ -22,7 +22,6 @@ const router = createBrowserRouter([
   {
     path: "/",
     element: <Layout />,
-    loader: rootLoader,
     errorElement: <NotFoundPage />,
     children: [
       { index: true, element: <Home /> },
@@ -31,12 +30,12 @@ const router = createBrowserRouter([
         element: <PrivateRoute><Dashboard /></PrivateRoute>,
       },
       {
-        path: "update-profile",
-        element: <PrivateRoute><UpdateProfile /></PrivateRoute>,
+        path: "profile",
+        element: <PrivateRoute><Profile /></PrivateRoute>,
       },
       {
-        path: "profile",
-        element: <Profile />,
+        path: "update-profile",
+        element: <PrivateRoute><UpdateProfile /></PrivateRoute>,
       },
       {
         path: "signup",
