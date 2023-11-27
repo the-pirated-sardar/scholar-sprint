@@ -1,18 +1,23 @@
-import React, { useEffect } from "react"
+import React from "react"
 import { Box, Typography, Link, List, ListItem, ListItemText, ListItemAvatar, ListItemButton, Avatar, Divider } from "@mui/material";
 import { useSearchResults } from "./SearchStore.js"
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 
-export default function SearchResults() {
+import { fetchSummary } from "../summarize/GPTMethods";
+import { useGPTResults } from "../summarize/GPTStore.js";
+
+const SearchResults = () => {
     const navigate = useNavigate()
+    const { results, setSelectedItem } = useSearchResults()
+    const { setGPTSummary } = useGPTResults();
 
-    const results = useSearchResults((state) => state.results)
+    async function goToSummary(item) {
+        setSelectedItem(item);
+        setGPTSummary(await fetchSummary(item));
+        navigate(`/Summary#${item.id}`);
+    }
 
-    useEffect(() => {
-        console.log(results)
-    }, [results])
-
-    return (
+    return results ? (
         <Box
             sx={{
                 display: "flex",
@@ -20,11 +25,11 @@ export default function SearchResults() {
                 height: 1,
             }}
         >
-            <List sx={{ width: '100%'}}>
+            <List sx={{ width: '100%' }}>
                 {results.map((listitem) => (
                     <React.Fragment key={listitem.id}>
-                        <ListItem alignItems="flex-start" sx={{bgcolor: 'white'}}>
-                            <ListItemButton onClick={() => {navigate("/Summary")}}>
+                        <ListItem alignItems="flex-start" sx={{ bgcolor: 'white' }}>
+                            <ListItemButton onClick={() => goToSummary(listitem)}>
                                 <ListItemAvatar>
                                     <Avatar alt="" src={listitem.dataProviders[0].logo} />
                                 </ListItemAvatar>
@@ -55,5 +60,7 @@ export default function SearchResults() {
                 ))}
             </List>
         </Box>
-    )
+    ) : "bug";
 }
+
+export default SearchResults;

@@ -1,24 +1,17 @@
 import React from "react";
-import { Box, TextField, Typography } from "@mui/material";
+import { Box, TextField } from "@mui/material";
 import { useSearchResults, coreapiStore } from "./SearchStore.js"
-import { useNavigate } from "react-router-dom";
 
-const searchBarStyle = {
-    height: 1,
-    width: 1,
-    background: 'white',
-    color: "white"
+import { OptimizeQuery } from "../summarize/OptimizeQuery.js";
 
-}
-
+import theme from "../themes/theme.js";
 
 export default function SearchBar() {
 
-    const apiKey = coreapiStore(((state) => state.apiKey))
-    const apiEndpoint = coreapiStore(((state) => state.apiEndpoint))
-    const setResults = useSearchResults((state) => state.setResults)
+    const { apiKey, apiEndpoint } = coreapiStore();
+    const { setResults } = useSearchResults();
 
-    async function query_api(urlFragment, query, limit = 5) {
+    async function query_api(urlFragment, query, limit = 10) {
         const headers = {
             "Authorization": "Bearer " + apiKey,
             "Content-Type": "application/json",
@@ -45,33 +38,22 @@ export default function SearchBar() {
         }
     }
 
-    /*
-    async function getDataPoviders(event) {
-        event.preventDefault()
-        getEntity("search/data-providers")
-            .then((results) => {
-                const data_providers = results[0].results
-                setResults(data_providers)
-            })
+    async function getWorks(query) {
+        query = await OptimizeQuery(query)
+        console.log(query)
+        try {
+            const response = await query_api("search/works", query)
+            console.log(response[0].results)
+            setResults(response[0].results)
+        } catch (error) {
+            console.error('Error fetching results:', error)
+        }
     }
-    */
-
-    async function getWorks(query = "covid AND yearPublished>=2010 AND yearPublished<=2021") {
-        query_api("search/works", query)
-            .then((results) => {
-                console.log(results)
-                const hits = results[0].results
-                setResults(hits)
-            })
-    }
-
-    const navigate = useNavigate();
 
     async function handleSubmit(event) {
         event.preventDefault()
 
         getWorks(event.target.search.value)
-        navigate("/results")
     }
 
     return (
@@ -83,20 +65,13 @@ export default function SearchBar() {
             alignItems="center"
             onSubmit={handleSubmit}
         >
-            <Box sx={{
-                color: "white",
-            }}>
-                <Typography variant="h5">
-                    What are you looking for?
-                </Typography>
-            </Box>
             <TextField
                 fullWidth
                 id="search"
-                variant="outlined"
-                sx={searchBarStyle}
+                variant="filled"
+                sx={theme.searchBarTheme.textfield}
                 label="search"
-                defaultValue="Machine Learning"
+                defaultValue="covid"
             />
         </Box>
     )

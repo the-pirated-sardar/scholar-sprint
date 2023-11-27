@@ -1,18 +1,47 @@
 const theme = {
-  rootTheme: {
+  root: {
     minWidth: '100vw',      // 100% of the viewport width
     minHeight: '100vh',     // 100% of the viewport height
+    overflowX : 'hidden',
     background: 'url("appBackground.png") center/cover no-repeat fixed',
     display: 'flex',
     flexDirection: 'column',
-    justifyContent: 'center',
+    justifyContent: 'space-between',
     alignItems: 'center',
   },
-  authTheme: {
-    backgroundColor: "black",
-    color: '#ffffff',
+  Header: {
+    backgroundColor: '#4D0EFF',
   },
-  buttonTheme: {
+  Footer:
+  {
+    backgroundColor: '#4D0EFF',
+  },
+  auth: {
+    backgroundColor: '#0C0320',
+    color: '#CCCCCC',
+    textfield: {
+      bgcolor: '#0C0320',
+      color: 'white',
+      '& .MuiInputLabel-root': { color: 'white' },
+      '& .MuiFilledInput-root': { color: 'white', '&:before': { borderBottomColor: 'white' } }
+    },
+    button: {
+      backgroundColor: '#4D0EFF',
+      '&:hover': {
+        backgroundColor: '#512da8',
+      },
+      color: '#FFFFFF',
+    }
+  },
+  searchBarTheme: {
+    textfield: {
+      bgcolor: '#708090',
+      color: 'white',
+      '& .MuiInputLabel-root': { color: 'white' },
+      '& .MuiFilledInput-root': { color: 'white', '&:before': { borderBottomColor: 'white' } }
+    },
+  },
+  button: {
     backgroundColor: '#4D0EFF',
     '&:hover': {
       backgroundColor: '#512da8',

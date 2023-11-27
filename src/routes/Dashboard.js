@@ -1,5 +1,5 @@
 import { Box } from "@mui/material"
-import SearchBar from "../search/SearchBar";
+import SearchDisplay from "../search/SearchDisplay";
 
 export default function Dashboard() {
     return (
@@ -19,7 +19,7 @@ export default function Dashboard() {
                 margin: 20,
                 width: 600
             }}>
-                <SearchBar />
+                <SearchDisplay />
             </Box>
         </Box>
     )

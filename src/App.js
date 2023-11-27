@@ -5,14 +5,14 @@ import {
 } from 'react-router-dom';
 import PrivateRoute from './auth/PrivateRoute';
 
-import Layout from './routes/Layout';
+import Layout from './layout/Layout';
 import NotFoundPage from './routes/NotFound';
 import Dashboard from './routes/Dashboard';
 import Home from "./routes/Home";
 import Contact from "./routes/Contact";
 import Login from './routes/Login';
 import ForgotPassword from './routes/ForgotPassword';
-import UpdateProfile from './routes/UpdateProfile'; import Results from "./routes/results";
+import UpdateProfile from './routes/UpdateProfile';
 import Summary from "./routes/SummaryPage";
 
 import Signup from './routes/Signup';
@@ -38,6 +38,10 @@ const router = createBrowserRouter([
         element: <PrivateRoute><UpdateProfile /></PrivateRoute>,
       },
       {
+        path: "summary",
+        element: <PrivateRoute><Summary /></PrivateRoute>,
+      },
+      {
         path: "signup",
         element: <Signup />,
       },
@@ -52,14 +56,6 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
-      },
-      {
-        path: "results",
-        element: <Results />,
-      },
-      {
-        path: "summary",
-        element: <Summary />,
       },
     ],
   },
