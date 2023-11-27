@@ -41,9 +41,7 @@ export const fetchOptimizedQuery = async (query) => {
 }
 
 export const fetchSummary = async (item) => {
-    //const response = await fetchData(SummaryPrefix, item.fullText)
-    const response = 'response';
-    console.log(item.fullText)
+    const response = await fetchData(SummaryPrefix, item.fullText)
     return response;
 }
 

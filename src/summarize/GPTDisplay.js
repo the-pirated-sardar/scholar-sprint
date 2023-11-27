@@ -1,12 +1,22 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, CardContent, Typography, Button, Link } from "@mui/material"
 import { useSearchResults } from "../search/SearchStore"
+import { useGPTResults } from "./GPTStore";
 
 import GPTSummary from "./GPTSummary";
+import GPTKeywords from "./GPTKeywords"
+import { fetchKeywords } from "./GPTMethods";
 
 const GPTDisplay = () => {
 
+    const { setGPTKeywords } = useGPTResults();
     const { selectedItem } = useSearchResults();
+    const [showKeywords, setShowKeywords] = useState(false);
+
+    async function getKeywords() {
+        setGPTKeywords(await fetchKeywords(selectedItem));
+        setShowKeywords(true);
+    }
 
     return (
         <Card sx={{ backgroundColor: '#3f51b5', color: '#fff', maxWidth: '80%' }}>
@@ -22,7 +32,7 @@ const GPTDisplay = () => {
                 <GPTSummary />
             </CardContent>
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                <Button variant="contained" color="secondary">
+                <Button variant="contained" color="secondary" onClick={getKeywords}>
                     get keywords
                 </Button>
                 <Link href={selectedItem.downloadUrl} target="_blank" rel="noopener noreferrer">
@@ -31,6 +41,11 @@ const GPTDisplay = () => {
                     </Button>
                 </Link>
             </CardContent>
+            {showKeywords &&
+                <CardContent>
+                    <GPTKeywords />
+                </CardContent>
+            }
         </Card>
     )
 }

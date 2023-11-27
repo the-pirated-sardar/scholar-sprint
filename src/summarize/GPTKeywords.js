@@ -4,11 +4,11 @@ import { useGPTResults } from "./GPTStore.js";
 
 const GPTSummary = () => {
 
-    const { gptSummary } = useGPTResults();
+    const { gptKeywords } = useGPTResults();
 
     return (
         <Typography variant='p'>
-            {`ChatGPT says: ${gptSummary}`}
+            {`Keywords: ${gptKeywords}`}
         </Typography>
     )
 }
