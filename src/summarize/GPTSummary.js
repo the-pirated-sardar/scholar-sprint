@@ -4,11 +4,11 @@ import { useGPTResults } from "./GPTStore.js";
 
 const GPTSummary = () => {
 
-    const { gptResults } = useGPTResults();
+    const { gptSummary } = useGPTResults();
 
     return (
         <Typography variant='p'>
-            {`GPT Results: ${gptResults}`}
+            {`GPT Results: ${gptSummary}`}
         </Typography>
     )
 }

@@ -2,15 +2,18 @@ import React from "react"
 import { Box, Typography, Link, List, ListItem, ListItemText, ListItemAvatar, ListItemButton, Avatar, Divider } from "@mui/material";
 import { useSearchResults } from "./SearchStore.js"
 import { useNavigate } from "react-router-dom";
-import getSummary from "../summarize/GPTMethods";
+
+import { fetchSummary } from "../summarize/GPTMethods";
+import { useGPTResults } from "../summarize/GPTStore.js";
 
 const SearchResults = () => {
     const navigate = useNavigate()
     const { results, setSelectedItem } = useSearchResults()
+    const { setGPTSummary } = useGPTResults();
 
     async function goToSummary(item) {
         setSelectedItem(item);
-        getSummary(item);
+        setGPTSummary(await fetchSummary(item));
         navigate(`/Summary#${item.id}`);
     }
 
