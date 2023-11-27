@@ -2,6 +2,7 @@ import React from "react"
 import { Box, Typography, Link, List, ListItem, ListItemText, ListItemAvatar, ListItemButton, Avatar, Divider } from "@mui/material";
 import { useSearchResults } from "./SearchStore.js"
 import { useNavigate } from "react-router-dom";
+import getSummary from "../summarize/GPTMethods";
 
 const SearchResults = () => {
     const navigate = useNavigate()
@@ -9,6 +10,7 @@ const SearchResults = () => {
 
     async function goToSummary(item) {
         setSelectedItem(item);
+        getSummary(item);
         navigate(`/Summary#${item.id}`);
     }
 

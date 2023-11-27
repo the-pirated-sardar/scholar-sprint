@@ -2,9 +2,9 @@ import React from "react";
 import { Card, CardContent, Typography, Button, Link } from "@mui/material"
 import { useSearchResults } from "../search/SearchStore"
 
-import GPTResults from "./GPTResults";
+import GPTSummary from "./GPTSummary";
 
-export default function GPTDisplay() {
+const GPTDisplay = () => {
 
     const { selectedItem } = useSearchResults();
 
@@ -19,7 +19,7 @@ export default function GPTDisplay() {
                 </Typography>
             </CardContent>
             <CardContent>
-                <GPTResults />
+                <GPTSummary />
             </CardContent>
             <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
                 <Button variant="contained" color="secondary">
@@ -34,3 +34,5 @@ export default function GPTDisplay() {
         </Card>
     )
 }
+
+export default GPTDisplay;
