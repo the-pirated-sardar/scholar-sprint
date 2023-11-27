@@ -1,28 +1,25 @@
-import { Box, Typography} from "@mui/material"
-import SearchBar from "../search/SearchBar";
+import { Box } from "@mui/material"
+import SearchDisplay from "../search/SearchDisplay";
 
 export default function Dashboard() {
     return (
         <Box sx={{
-            Display: 'flex', 
+            Display: 'flex',
             flexDirection: 'column',
             alignItems: 'center',
-            justifyContent: 'flex-end', 
-            textAlign: 'center', 
+            justifyContent: 'flex-end',
+            textAlign: 'center',
         }}>
-            <Typography variant="h5">
-                What are you looking for?
-            </Typography>
             <Box sx={{
-                Display: 'flex', 
+                Display: 'flex',
                 flexDirection: 'column',
                 alignItems: 'center',
-                justifyContent: 'center', 
-                textAlign: 'center', 
-                margin: 20, 
+                justifyContent: 'center',
+                textAlign: 'center',
+                margin: 20,
                 width: 600
             }}>
-                <SearchBar/>
+                <SearchDisplay />
             </Box>
         </Box>
     )

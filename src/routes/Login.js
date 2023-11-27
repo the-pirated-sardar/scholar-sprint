@@ -1,39 +1,36 @@
 import React, { useRef, useState } from 'react';
-import { Card, CardContent, Typography, TextField, Button, Alert, Link } from '@mui/material';
+import { Card, CardContent, Typography, TextField, Button, Box, Link } from '@mui/material';
 import { useAuthStore } from '../auth/AuthStore';
 import { Link as RouterLink, useNavigate } from 'react-router-dom';
+import theme from '../themes/theme';
 
 export default function Login() {
   const emailRef = useRef();
   const passwordRef = useRef();
   const { login } = useAuthStore();
-  const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
-  const handleSubmit = async (e) => {
-    e.preventDefault();
+  const handleSubmit = async (event) => {
+    event.preventDefault()
 
-    try {
-      setError('');
-      setLoading(true);
-      await login(emailRef.current.value, passwordRef.current.value);
-      navigate('/');
-    } catch {
-      setError('Failed to log in');
-    }
-
-    setLoading(false);
-  };
+    await login(emailRef.current.value, passwordRef.current.value)
+      .then(() => {
+        setLoading(false)
+        navigate('/')
+      })
+      .catch((error) => {
+        console.error(error)
+      })
+  }
 
   return (
-    <Card>
+    <Card sx={theme.auth}>
       <CardContent>
         <Typography variant="h5" align="center" gutterBottom>
           Log In
         </Typography>
-        {error && <Alert severity="error">{error}</Alert>}
-        <form onSubmit={handleSubmit}>
+        <Box component="form" onSubmit={handleSubmit}>
           <TextField
             fullWidth
             id="email"
@@ -41,7 +38,8 @@ export default function Login() {
             type="email"
             required
             inputRef={emailRef}
-            variant="outlined"
+            sx={theme.auth.textfield}
+            variant="filled"
             margin="normal"
           />
           <TextField
@@ -51,29 +49,30 @@ export default function Login() {
             type="password"
             required
             inputRef={passwordRef}
-            variant="outlined"
+            sx={theme.auth.textfield}
+            variant="filled"
             margin="normal"
           />
           <Button
             disabled={loading}
             fullWidth
             variant="contained"
-            color="primary"
+            sx={theme.auth.button}
             type="submit"
-            style={{ marginTop: '16px' }}
+            margin="normal"
           >
             Log In
           </Button>
-        </form>
-        <div style={{ marginTop: '16px' }} className="text-center">
+        </Box>
+        <Box style={{ marginTop: '16px' }} className="text-center">
           <Link to="/forgot-password" component={RouterLink}>
             Forgot Password?
           </Link>
-        </div>
+        </Box>
       </CardContent>
-      <div style={{ marginTop: '16px' }} className="w-100 text-center mt-2">
+      <Box margin={"16px"} className="w-100 text-center mt-2">
         Need an account? <Link to="/signup" component={RouterLink}>Sign Up</Link>
-      </div>
+      </Box>
     </Card>
   );
 }

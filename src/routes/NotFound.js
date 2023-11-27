@@ -9,11 +9,11 @@ export default function NotFoundPage() {
     return (
 
         <Box>
-            <h1>Oops!</h1>
-            <p>Sorry, an unexpected error has occurred.</p>
-            <p>
-                <i>{error.statusText || error.message}</i>
-            </p>
+            Oops!
+            Sorry, an unexpected error has occurred.
+
+            {error.statusText || error.message}
+
         </Box>
     )
 }

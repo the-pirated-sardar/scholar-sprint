@@ -1,54 +1,40 @@
+import React, { useEffect } from "react"
 import { Link } from "react-router-dom"
-import { Box, Button, Card, CardContent, Typography } from "@mui/material"
-import { useAuthStore } from '../auth/AuthStore';
-import { useNavigate } from "react-router-dom"
+import { Button, Card, CardContent, Typography } from "@mui/material"
+import { useAuthStore } from '../auth/AuthStore'
 
 export default function Home() {
-    const { currentUser, logout } = useAuthStore();
-    const navigate = useNavigate();
 
-    async function handleLogout() {
-        try {
-            await logout()
-                .then(navigate('/login'))
-        } catch (e) {
-            console.error(e)
-        }
-    }
+    const { init } = useAuthStore();
+
+    useEffect(() => {
+        init();
+    }, [init]);
 
     return (
-        <Box
-            sx={{
-                display: 'flex',
-                blockSize: 'cover', 
-                flexDirection: 'column',
-                alignItems: 'center',
-                justifyContent: 'center',
-            }}
-        >
-            <Card>
-                <CardContent>
-                    <Typography variant="h5" align="center" gutterBottom>
-                        Profile
-                    </Typography>
-                    <strong>Email:</strong> {currentUser ? currentUser.email : "bug"}
-                </CardContent>
-                <CardContent>
-                    <Button variant="outlined">
-                        <Link to="/update-profile">
-                            Update Profile
-                        </Link>
-                    </Button>
-                    <Button variant="text" onClick={handleLogout}>
-                        Log Out
-                    </Button>
-                    <Button variant="outlined">
-                        <Link to={`/dashboard`}>
-                            Go To Dashboard
-                        </Link>
-                    </Button>
-                </CardContent>
-            </Card>
-        </Box>
+        <Card sx={{
+            backgroundColor: '#3f51b5',
+            color: '#fff',
+            padding: '16px',
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignItems: 'center'
+        }}>
+            <CardContent>
+                <Typography variant="h5" sx={{ fontSize: '1.5rem' }}>
+                    Use now
+                </Typography>
+            </CardContent>
+            <CardContent>
+                <Button variant="contained" component={Link} color="secondary" to="/dashboard">
+                    Go To Dashboard
+                </Button>
+            </CardContent>
+            <CardContent>
+                <Button variant="contained" component={Link} color="secondary" to="/profile">
+                    Profile
+                </Button>
+            </CardContent>
+        </Card>
     )
 }

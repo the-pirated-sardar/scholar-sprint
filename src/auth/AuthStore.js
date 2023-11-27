@@ -8,22 +8,17 @@ import {
   sendPasswordResetEmail
 } from "firebase/auth";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyDrY5LA6B6BbQSShBQiJ4QVxmLSW5NB_3U",
-  authDomain: "scholarsprint-647c1.firebaseapp.com",
-  projectId: "scholarsprint-647c1",
-  storageBucket: "scholarsprint-647c1.appspot.com",
-  messagingSenderId: "984628027653",
-  appId: "1:984628027653:web:50a5dc50250d1272a0d76c",
-  measurementId: "G-QS8EGK7ZNE"
-}
+import { firebaseConfig } from './config'
 
 const app = initializeApp(firebaseConfig)
 const auth = getAuth(app)
 
 export const useAuthStore = create((set) => ({
   currentUser: null,
-  setCurrentUser: (user) => set((currentUser) => ({ user })),
+  setCurrentUser: (user) => {
+    set((currentUser) => ({ currentUser: user }))
+    console.log(useAuthStore.getState().currentUser)
+  },
   loading: true,
 
   signup: async (email, password) => {
@@ -32,12 +27,12 @@ export const useAuthStore = create((set) => ({
   },
   login: async (email, password) => {
     await signInWithEmailAndPassword(auth, email, password)
-      .then(console.log(useAuthStore.getState().currentUser))
+      .then((user) => set((currentUser) => ({ currentUser: user })))
       .catch(error => console.error('Error in login:', error))
   },
   logout: async () => {
     await signOut(auth)
-      .then(console.log(useAuthStore.getState().currentUser))
+      .then(() => set((currentUser) => ({ currentUser: null })))
       .catch(error => console.error('Error in signout:', error))
   },
   resetPassword: async (email) => {
@@ -56,15 +51,15 @@ export const useAuthStore = create((set) => ({
     try {
       const user = await new Promise((resolve, reject) => {
         const unsubscribe = auth.onAuthStateChanged((user) => {
-          resolve(user);
-          unsubscribe();
-        }, reject);
-      });
+          resolve(user)
+          unsubscribe()
+        }, reject)
+      })
 
-      set({ currentUser: user, loading: false });
+      set({ currentUser: user, loading: false })
     } catch (error) {
-      console.error('Error in init:', error);
-      set({ currentUser: null, loading: false });
+      console.error('Error in init:', error)
+      set({ currentUser: null, loading: false })
     }
   },
 }))

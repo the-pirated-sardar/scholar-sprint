@@ -5,5 +5,5 @@ import { useAuthStore } from './AuthStore';
 export default function PrivateRoute({ children }) {
   const { currentUser } = useAuthStore();
 
-  return currentUser ? children : <Navigate to="/login" />;
+  return currentUser ? children : <Navigate to="/login" />
 }

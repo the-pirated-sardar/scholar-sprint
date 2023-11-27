@@ -1,5 +1,5 @@
 import React from "react";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import SearchBar from "./SearchBar";
 import SearchResults from "./SearchResults";
 
@@ -16,9 +16,13 @@ export default function SearchDisplay() {
                 sx={{
                     alignItems: 'center',
                     justifyContent: 'center',
+                    color: 'white'
                 }}
             >
-                <SearchBar/>
+                <Typography variant="h5">
+                    What are you looking for?
+                </Typography>
+                <SearchBar />
             </Box>
             <Box
                 sx={{
@@ -26,7 +30,7 @@ export default function SearchDisplay() {
                     justifyContent: 'center',
                 }}
             >
-                <SearchResults/>
+                <SearchResults />
             </Box>
         </Box>
     )
