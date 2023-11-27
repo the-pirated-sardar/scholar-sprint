@@ -2,7 +2,7 @@ import React from "react";
 import { Box, TextField } from "@mui/material";
 import { useSearchResults, coreapiStore } from "./SearchStore.js"
 
-import { OptimizeQuery } from "../summarize/OptimizeQuery.js";
+import { fetchOptimizedQuery } from "../summarize/GPTMethods.js";
 
 import theme from "../themes/theme.js";
 
@@ -39,7 +39,7 @@ export default function SearchBar() {
     }
 
     async function getWorks(query) {
-        query = await OptimizeQuery(query)
+        query = await fetchOptimizedQuery(query)
         console.log(query)
         try {
             const response = await query_api("search/works", query)
