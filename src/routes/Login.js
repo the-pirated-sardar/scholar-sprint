@@ -25,7 +25,7 @@ export default function Login() {
   }
 
   return (
-    <Card sx={{}}>
+    <Card sx={theme.auth}>
       <CardContent>
         <Typography variant="h5" align="center" gutterBottom>
           Log In
@@ -38,7 +38,8 @@ export default function Login() {
             type="email"
             required
             inputRef={emailRef}
-            variant="outlined"
+            sx={theme.auth.textfield}
+            variant="filled"
             margin="normal"
           />
           <TextField
@@ -48,14 +49,15 @@ export default function Login() {
             type="password"
             required
             inputRef={passwordRef}
-            variant="outlined"
+            sx={theme.auth.textfield}
+            variant="filled"
             margin="normal"
           />
           <Button
             disabled={loading}
             fullWidth
             variant="contained"
-            sx={theme.buttonTheme}
+            sx={theme.auth.button}
             type="submit"
             margin="normal"
           >
@@ -68,7 +70,7 @@ export default function Login() {
           </Link>
         </Box>
       </CardContent>
-      <Box style={{ marginTop: '16px' }} className="w-100 text-center mt-2">
+      <Box margin={"16px"} className="w-100 text-center mt-2">
         Need an account? <Link to="/signup" component={RouterLink}>Sign Up</Link>
       </Box>
     </Card>

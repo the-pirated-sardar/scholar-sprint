@@ -1,25 +1,36 @@
 import React from "react";
-import { Box } from "@mui/material"
-import OptimizeQueryButton from "./OptimizeQuery";
-import SummarizeButton from "./SummarizeButton";
+import { Card, CardContent, Typography, Button, Link } from "@mui/material"
+import { useSearchResults } from "../search/SearchStore"
+
 import GPTResults from "./GPTResults";
 
 export default function GPTDisplay() {
+
+    const { selectedItem } = useSearchResults();
+
     return (
-        <div>
-            <Box
-                sx = {{
-                    display: 'flex',
-                    py: 10,
-                    flexDirection: 'column',
-                    alignItems: 'flex-start',
-                    justifyContent: 'flex-start',
-                }}
-            >
-                <OptimizeQueryButton />
-                <SummarizeButton />
-            </Box>
-            <GPTResults />
-        </div>
+        <Card sx={{ backgroundColor: '#3f51b5', color: '#fff', maxWidth: '80%' }}>
+            <CardContent>
+                <Typography variant="h5" component="div" gutterBottom>
+                    {selectedItem.title}
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                    {selectedItem.authors.map(a => a.name).join('; ')}
+                </Typography>
+            </CardContent>
+            <CardContent>
+                <GPTResults />
+            </CardContent>
+            <CardContent sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                <Button variant="contained" color="secondary">
+                    get keywords
+                </Button>
+                <Link href={selectedItem.downloadUrl} target="_blank" rel="noopener noreferrer">
+                    <Button variant="contained" color="secondary" sx={{ marginLeft: 'auto' }}>
+                        Download
+                    </Button>
+                </Link>
+            </CardContent>
+        </Card>
     )
 }

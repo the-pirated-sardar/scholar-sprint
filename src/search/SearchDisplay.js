@@ -16,6 +16,7 @@ export default function SearchDisplay() {
                 sx={{
                     alignItems: 'center',
                     justifyContent: 'center',
+                    color: 'white'
                 }}
             >
                 <Typography variant="h5">

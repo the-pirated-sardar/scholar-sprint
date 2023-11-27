@@ -7,5 +7,8 @@ export const coreapiStore = create((set) => ({
 
 export const useSearchResults = create((set) => ({
   results: [],
-  setResults: (results) => set((state) => ({ results })),
-}))
+  setResults: (newResults) => set({ results: newResults }),
+
+  selectedItem: null,
+  setSelectedItem: (item) => set({ selectedItem: item }),
+}));

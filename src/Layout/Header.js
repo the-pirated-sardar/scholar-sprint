@@ -1,24 +1,17 @@
-import { AppBar, Toolbar, Typography, Button, IconButton } from '@mui/material';
+import { AppBar, Toolbar, Typography, IconButton } from '@mui/material';
 import { Link } from 'react-router-dom';
 
-import { useAuthStore } from "../auth/AuthStore"
 import theme from "../themes/theme"
 
 const Header = () => {
 
-    const { currentUser } = useAuthStore
-
-    const verifyAuth = () => {
-        console.log(currentUser)
-    }
-
     return (
-        <AppBar position="static" sx={theme.Header}>
-            <Toolbar>
-                <IconButton component={Link} to="/">Home</IconButton>
-                <Typography variant="h6" component="div" sx={{ flexGrow: 1, textAlign: 'center' }}>ScholarSprint</Typography>
-                <Button component={Link} to="/profile" color="inherit">Profile</Button>
-                <Button variant="contained" onClick={verifyAuth}>Verify Auth</Button>
+        <AppBar position="fixed" sx={{...theme.Header,}}>
+            <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+                <IconButton component={Link} to="/"><img src="home.png" alt="Home"/></IconButton>
+                <Typography variant="h6" component="div" textAlign='center'>ScholarSprint</Typography>
+                <IconButton component={Link} to="/profile" sx={{ maxWidth: 50, maxHeight: 50 }}><img src="profile.png" alt="profile" width='100%'
+                /></IconButton>
             </Toolbar>
         </AppBar>
     );

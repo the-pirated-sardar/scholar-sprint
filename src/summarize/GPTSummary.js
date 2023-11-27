@@ -1,9 +1,9 @@
 import React from "react";
-import { Box, Button } from "@mui/material";
+import { Typography } from "@mui/material";
 import { useSearchResults } from "../search/SearchStore.js"
 import { useGPTResults } from "./GPTStore.js";
 
-export default function SummarizeButton() {
+export default function GPTSummary() {
 
     const results = useSearchResults((state) => state.results)
     const setGPTResults = useGPTResults((state)=>state.setGPTResults)
@@ -47,18 +47,8 @@ export default function SummarizeButton() {
     }
 
     return (
-        <Box
-        >
-            <Button
-                variant="outlined"
-                sx={{
-                    color: 'white',
-                }}
-                onClick={handleClick}  
-            >
-                Summarize
-            </Button>
-        </Box>
+        <Typography>
 
+        </Typography>
     )
 }
