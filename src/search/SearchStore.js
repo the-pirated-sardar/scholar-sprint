@@ -1,7 +1,7 @@
 import { create } from "zustand"
 
 export const coreapiStore = create((set) => ({
-  apiKey: "j8F30WKHQaLkZVnEI4xU6Pd1Gc2BNwil",
+  apiKey: process.env.CORE_API_KEY,
   apiEndpoint: "https://api.core.ac.uk/v3/",
 }))
 

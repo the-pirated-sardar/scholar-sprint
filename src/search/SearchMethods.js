@@ -1,11 +1,3 @@
-const OptimizePrefix = "I want to optimize the search query sent to CORE API to fetch research, for which I have made a natural language prompt. "
-    + "So I want you to reply with only an expanded prompt to be sent to CORE API and nothing else at all. "
-    + "The natural language prompt is as follows: ";
-
-const SummaryPrefix = "Summarize the following text: ";
-
-const KeywordPrefix = "Get me the 5 most relevant keywords from the following text, in one line, comma-seperated";
-
 async function fetchData(prefix, prompt) {
 
     const options = {
