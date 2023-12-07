@@ -11,7 +11,7 @@ async function fetchData(prefix, prompt) {
     const options = {
         method: "POST",
         headers: {
-            Authorization: `Bearer ${process.env.OPENAI_API_KEY}`,
+            Authorization: `Bearer ${process.env.REACT_APP_OPENAI_API_KEY}`,
             "Content-Type": "application/json"
         },
         body: JSON.stringify({
@@ -35,15 +35,18 @@ async function fetchData(prefix, prompt) {
 
 export const fetchOptimizedQuery = async (query) => {
     const response = await fetchData(OptimizePrefix, query)
+    console.log(response)
     return response
 }
 
 export const fetchSummary = async (item) => {
     const response = await fetchData(SummaryPrefix, item.fullText)
+    console.log(response)
     return response;
 }
 
 export const fetchKeywords = async (item) => {
     const response = await fetchData(KeywordPrefix, item.fullText)
+    console.log(response)
     return response
 }
