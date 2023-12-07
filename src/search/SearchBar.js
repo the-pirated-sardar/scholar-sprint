@@ -1,26 +1,25 @@
 import React from "react";
 import { Box, TextField } from "@mui/material";
-import { useSearchResults, coreapiStore } from "./SearchStore.js"
+import { useSearchResults } from "./SearchStore.js"
 
 import { fetchOptimizedQuery } from "../summarize/GPTMethods.js";
 
 import theme from "../themes/theme.js";
 
 export default function SearchBar() {
-
-    const { apiKey, apiEndpoint } = coreapiStore();
+    
     const { setResults } = useSearchResults();
 
     async function query_api(urlFragment, query, limit = 10) {
         const headers = {
-            "Authorization": "Bearer " + apiKey,
+            "Authorization": `Bearer ${process.env.REACT_APP_CORE_API_KEY}`,
             "Content-Type": "application/json",
         };
 
         const requestBody = JSON.stringify({ q: query, limit: limit });
 
         try {
-            const response = await fetch(`${apiEndpoint}${urlFragment}`, {
+            const response = await fetch(`https://api.core.ac.uk/v3/${urlFragment}`, {
                 method: "POST",
                 headers: headers,
                 body: requestBody,
@@ -39,8 +38,7 @@ export default function SearchBar() {
     }
 
     async function getWorks(query) {
-        query = await fetchOptimizedQuery(query)
-        console.log(query)
+        query = false ? await fetchOptimizedQuery(query) : query
         try {
             const response = await query_api("search/works", query)
             console.log(response[0].results)
@@ -52,7 +50,6 @@ export default function SearchBar() {
 
     async function handleSubmit(event) {
         event.preventDefault()
-
         getWorks(event.target.search.value)
     }
 
