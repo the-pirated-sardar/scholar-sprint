@@ -35,18 +35,15 @@ async function fetchData(prefix, prompt) {
 
 export const fetchOptimizedQuery = async (query) => {
     const response = await fetchData(OptimizePrefix, query)
-    console.log(response)
     return response
 }
 
 export const fetchSummary = async (item) => {
     const response = await fetchData(SummaryPrefix, item.fullText)
-    console.log(response)
     return response;
 }
 
 export const fetchKeywords = async (item) => {
     const response = await fetchData(KeywordPrefix, item.fullText)
-    console.log(response)
     return response
 }
