@@ -68,7 +68,7 @@ export default function SearchBar() {
                 variant="filled"
                 sx={theme.searchBarTheme.textfield}
                 label="search"
-                defaultValue="covid"
+                defaultValue="ML"
             />
         </Box>
     )

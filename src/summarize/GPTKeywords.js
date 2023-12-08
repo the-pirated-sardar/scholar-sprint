@@ -2,7 +2,7 @@ import React from "react";
 import { Typography } from "@mui/material";
 import { useGPTResults } from "./GPTStore.js";
 
-const GPTSummary = () => {
+const GPTKeywords = () => {
 
     const { gptKeywords } = useGPTResults();
 
@@ -13,4 +13,4 @@ const GPTSummary = () => {
     )
 }
 
-export default GPTSummary;
+export default GPTKeywords;

@@ -22,10 +22,10 @@ const GPTDisplay = () => {
         <Card sx={{ backgroundColor: '#3f51b5', color: '#fff', maxWidth: '80%' }}>
             <CardContent>
                 <Typography variant="h5" component="div" gutterBottom>
-                    {selectedItem.title}
+                    {selectedItem?.title}
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                    {selectedItem.authors.map(a => a.name).join('; ')}
+                    {selectedItem?.authors.map(a => a.name).join('; ')}
                 </Typography>
             </CardContent>
             <CardContent>
@@ -35,7 +35,7 @@ const GPTDisplay = () => {
                 <Button variant="contained" color="secondary" onClick={getKeywords}>
                     get keywords
                 </Button>
-                <Link href={selectedItem.downloadUrl} target="_blank" rel="noopener noreferrer">
+                <Link href={selectedItem?.downloadUrl} target="_blank" rel="noopener noreferrer">
                     <Button variant="contained" color="secondary" sx={{ marginLeft: 'auto' }}>
                         Download
                     </Button>
