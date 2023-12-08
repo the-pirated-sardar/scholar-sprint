@@ -108,8 +108,8 @@ This web application is designed to help students/instructors research by provid
 - **Architectural Diagrams**: [Link to architectural diagrams, showcasing frontend and backend structures]
 
 ## Setup Instructions
-1. Clone the repository: `git clone [repository-link]`
-2. Navigate to the project directory: `cd project-name`
+1. Clone the repository: `git clone https://github.com/the-pirated-sardar/1Sky-Project-276.git`
+2. Navigate to the project directory: `cd 1Sky-Project-276`
 3. Install dependencies: `npm install`
 4. Start the development server: `npm start`
 ... add any other necessary setup instructions.
