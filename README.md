@@ -37,11 +37,15 @@ This web application is designed to help students/instructors research by provid
 - [Jerry Chen](https://github.com/jchen-sfu)
 - [Udham Lalli](https://github.com/UdhamL)
 
-## AI Disclousre Forms:
+## AI Disclousre Forms for Milestone 1:
 - [Prateek Singh Arora](AI_declarations/Milestone1_AI_Declaration_Prateek_Arora_301417287.pdf)
-- [Jovan Beas](AI_declarations/Project_Milestone1_AI_Disclosure_Jovan_Beas_301449584.pdf)s
+- [Jovan Beas](AI_declarations/Project_Milestone1_AI_Disclosure_Jovan_Beas_301449584.pdf)
 - [Jerry Chen](AI_declarations/Milestone1_AI_Declaration_Jerry_Chen_301433728.pdf)
 - [Udham Lalli](AI_declarations/P1_AI_Declaration_Udhay_Lalli_301430162.pdf)
+
+## AI Disclousre Forms for Milestone 2:
+
+- [Jovan Beas](AI_declarations/Project_Milestone2_AI_Disclosure_Jovan_Beas_301449584.pdf)
 
 ## Shared Documents Links
 - **Google Docs**: [Link](https://docs.google.com/document/d/1y8AEWyzAuIrlz61OJoMNexjp9WL8iy9tKR_iihNczL0/edit?usp=sharing). Access will need to be requested.
