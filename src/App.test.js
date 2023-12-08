@@ -8,15 +8,41 @@ import SearchDisplay from './search/SearchDisplay';
 import SearchResults from './search/SearchResults';
 
 import GPTSummary from './summarize/GPTSummary';
-import GPTKeywords from './summarize/GPTSummary';
+import GPTKeywords from './summarize/GPTKeywords';
 import GPTDisplay from './summarize/GPTDisplay';
 
-// Unit Test
-test('renders SearchBar', () => {
-  render(<SearchBar />);
-  
-  expect(screen.getByRole('textbox', { name: /search/i })).toHaveValue('ML');
+import { useSearchResults } from './search/SearchStore';
+import { useGPTResults } from './summarize/GPTStore';
+import { useAuthStore } from './auth/AuthStore';
+
+jest.mock('./search/SearchStore');
+jest.mock('./summarize/GPTStore');
+jest.mock('./auth/AuthStore');
+
+describe('SearchBar component', () => {
+  // Unit Test 1: SearchBar renders properly
+  test('renders SearchBar component', () => {
+    render(<SearchBar />);
+    expect(screen.getByRole('textbox', { name: /search/i })).toHaveValue('ML');
+  });
+
+  // Unit Test 2: SearchBar accepts input
+  test('handles form submission', async () => {
+    const setResultsMock = jest.fn();
+    useSearchResults.mockReturnValue({ setResults: setResultsMock });
+
+    const { getByLabelText, getByTestId } = render(<SearchBar />);
+    fireEvent.change(getByLabelText('search'), { target: { value: 'Machine Learning' } });
+    fireEvent.submit(getByTestId('search-form'));
+
+    await waitFor(() => {
+      expect(setResultsMock).toHaveBeenCalled();
+    });
+  });
+
+  // Add more tests as needed for other functionality in your component
 });
+
 
 // Unit Test
 test('renders SearchResults', () => {
