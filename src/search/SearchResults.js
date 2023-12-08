@@ -60,7 +60,7 @@ const SearchResults = () => {
                 ))}
             </List>
         </Box>
-    ) : "bug";
+    ) : <Box>no results</Box>;
 }
 
 export default SearchResults;

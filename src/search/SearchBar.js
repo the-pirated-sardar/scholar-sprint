@@ -38,7 +38,7 @@ export default function SearchBar() {
     }
 
     async function getWorks(query) {
-        query = false ? await fetchOptimizedQuery(query) : query
+        query = await fetchOptimizedQuery(query)
         try {
             const response = await query_api("search/works", query)
             console.log(response[0].results)
