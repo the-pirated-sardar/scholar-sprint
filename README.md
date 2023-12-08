@@ -17,7 +17,8 @@ This web application is designed to help students/instructors research by provid
   - [Objectives](#objectives)
   - [Table of Contents](#table-of-contents)
   - [Contributors](#contributors)
-  - [AI Disclousre Forms:](#ai-disclousre-forms)
+  - [AI Disclousre Forms for Milestone 1:](#ai-disclousre-forms-for-milestone-1)
+  - [AI Disclousre Forms for Milestone 2:](#ai-disclousre-forms-for-milestone-2)
   - [Shared Documents Links](#shared-documents-links)
   - [Communication](#communication)
   - [Decision Making](#decision-making)
@@ -46,6 +47,7 @@ This web application is designed to help students/instructors research by provid
 ## AI Disclousre Forms for Milestone 2:
 
 - [Jovan Beas](AI_declarations/Project_Milestone2_AI_Disclosure_Jovan_Beas_301449584.pdf)
+- [Prateek Singh Arora](AI_declarations/Milestone2_AI_Declaration_Prateek_Arora_301417287.pdf)
 
 ## Shared Documents Links
 - **Google Docs**: [Link](https://docs.google.com/document/d/1y8AEWyzAuIrlz61OJoMNexjp9WL8iy9tKR_iihNczL0/edit?usp=sharing). Access will need to be requested.
