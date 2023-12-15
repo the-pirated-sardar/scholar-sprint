@@ -3,6 +3,9 @@ Web Application Project by Prateek Singh Arora, Jovan Joseph, Jerry Chen, Udham 
 
 # Research Tool Web App
 
+## Deployed Web Application
+The application has been deployed using Netlify. It can be accessed [here](https://visionary-pegasus-b5d213.netlify.app/).
+
 ## Overview
 This web application is designed to help students/instructors research by providing an RSS feed to keep up with the latest research publications, alongside a sentiment analysis tool to gauge the general sentiment around these publications. Our application combines the capabilities of an RSS API and the ChatGPT API for sentiment analysis.
 
@@ -13,6 +16,7 @@ This web application is designed to help students/instructors research by provid
 ## Table of Contents
 - [Project-276](#project-276)
 - [Research Tool Web App](#research-tool-web-app)
+  - [Deployed Web Application](#deployed-web-application)
   - [Overview](#overview)
   - [Objectives](#objectives)
   - [Table of Contents](#table-of-contents)
