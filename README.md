@@ -4,6 +4,7 @@ Web Application Project by Prateek Singh Arora, Jovan Joseph, Jerry Chen, Udham 
 # Research Tool Web App
 
 ## Deployed Web Application
+Update (June, 2024): The app is deployed, but non-functional as the student-led team cannot sustain the cost of API requests to make use of OpenAI's model.
 The application has been deployed using Netlify. It can be accessed [here](https://visionary-pegasus-b5d213.netlify.app/).
 
 ## Overview
